@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
+import { ArrowLeft, Clock, Users, BookOpen } from "lucide-react";
 
 export default function TimelinePage() {
   const timelineData = [
@@ -88,44 +89,113 @@ export default function TimelinePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+    <div
+      className="min-h-screen bg-[#0a0a0f] overflow-hidden"
+      style={{
+        fontFamily:
+          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      }}
+    >
       <Navigation />
 
-      <main className="pt-16">
+      {/* Animated Background - giống HeroSection */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-fuchsia-950/30 to-[#0a0a0f]" />
+
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -left-48 w-96 h-96 bg-violet-600 rounded-full blur-[128px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-1/4 -right-48 w-96 h-96 bg-fuchsia-600 rounded-full blur-[128px]"
+        />
+
+        <div
+          className="absolute inset-0 opacity-[0.015] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 pt-16">
+        {/* Back Button */}
+        <div className="pt-8 px-6 max-w-7xl mx-auto">
+          <Link href="/">
+            <motion.button
+              whileHover={{ x: -4 }}
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              <span>Về trang chủ</span>
+            </motion.button>
+          </Link>
+        </div>
+
         {/* Header */}
-        <section className="py-20 px-10 text-center">
-          <motion.h1
+        <section className="py-16 px-6 text-center max-w-5xl mx-auto">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-7xl font-bold mb-4"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 backdrop-blur-xl border border-white/10 mb-8"
+          >
+            <Clock className="w-4 h-4 text-violet-400" />
+            <span className="text-sm font-medium tracking-wide text-violet-200">
+              Timeline Triết học
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-6xl md:text-7xl font-bold mb-6"
             style={{
               fontFamily: "'Instrument Serif', Georgia, serif",
-              background: "linear-gradient(135deg, #ffffff, #c4b5fd, #f0abfc)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              fontWeight: 400,
             }}
           >
-            Timeline Tư tưởng
+            <span className="block bg-gradient-to-br from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
+              Timeline Tư tưởng
+            </span>
           </motion.h1>
+
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-200 mb-8"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-xl text-gray-400 leading-relaxed"
           >
-            "Giới tính trong Triết học qua các thời đại"
+            "Giới tính trong Triết học qua các thời đại" - Khám phá sự tiến hóa
+            của tư tưởng từ cổ đại đến hiện đại
           </motion.p>
         </section>
 
         {/* Timeline Table */}
-        <section className="py-10 px-4">
+        <section className="py-10 px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 overflow-x-auto"
+              viewport={{ once: true }}
+              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300 overflow-x-auto"
             >
-              <h2 className="text-3xl font-bold text-white mb-8 text-center">
+              <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
                 Dòng thời gian Triết học về Giới tính
               </h2>
 
@@ -255,27 +325,29 @@ export default function TimelinePage() {
         </section>
 
         {/* Interactive 3D Section */}
-        <section className="py-10 px-4">
+        <section className="py-10 px-6">
           <div className="max-w-6xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
+              viewport={{ once: true }}
+              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300 text-center"
             >
-              <h2 className="text-3xl font-bold text-white mb-6">
+              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
                 Khám phá 3D Timeline
               </h2>
-              <p className="text-gray-200 mb-8">
+              <p className="text-gray-400 text-xl mb-10 leading-relaxed">
                 Trải nghiệm timeline tương tác với các triết gia trong không
                 gian 3D
               </p>
               <Link href="/timeline-3d">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg transition-colors duration-200"
+                  className="group relative overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold py-4 px-9 rounded-full shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:shadow-yellow-500/40 transition-all duration-300 flex items-center justify-center gap-3 mx-auto"
                 >
-                  Khám phá Timeline 3D
+                  <Clock className="w-5 h-5" />
+                  <span>Khám phá Timeline 3D</span>
                 </motion.button>
               </Link>
             </motion.div>
@@ -283,45 +355,60 @@ export default function TimelinePage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-20 px-10 bg-black/20 backdrop-blur-sm">
+        <section className="py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl font-bold text-white mb-8"
+              viewport={{ once: true }}
+              className="text-5xl font-bold text-white mb-6"
+              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
             >
-              Khám phá sâu hơn
+              <span className="bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+                Khám phá sâu hơn
+              </span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-200 mb-8"
+              className="text-xl text-gray-400 mb-10"
             >
               Click vào các triết gia để tìm hiểu chi tiết về quan điểm của họ
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-5 justify-center"
             >
-              <a
-                href="/comic"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg transition-colors duration-200"
-              >
-                Đọc Comic Strip
-              </a>
-              <a
-                href="/discussion"
-                className="border-2 border-white text-white hover:bg-white hover:text-black font-bold py-4 px-8 rounded-lg transition-colors duration-200"
-              >
-                Tham gia Thảo luận
-              </a>
+              <Link href="/comic">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold py-4 px-9 rounded-full shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:shadow-yellow-500/40 transition-all duration-300 flex items-center justify-center gap-3"
+                >
+                  <BookOpen className="w-5 h-5" />
+                  <span>Đọc Comic Strip</span>
+                </motion.button>
+              </Link>
+
+              <Link href="/discussion">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-bold py-4 px-9 rounded-full transition-all duration-300 flex items-center gap-3"
+                >
+                  <Users className="w-5 h-5" />
+                  <span>Tham gia Thảo luận</span>
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

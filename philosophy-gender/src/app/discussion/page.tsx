@@ -7,10 +7,15 @@ import {
   BarChart3,
   ThumbsUp,
   ThumbsDown,
+  Sparkles,
+  ArrowLeft,
+  Users,
+  TrendingUp,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import Link from "next/link";
 
-export default function DiscussionPageSimple() {
+export default function DiscussionPage() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [hasVoted, setHasVoted] = useState(false);
   const [comments, setComments] = useState([
@@ -69,24 +74,97 @@ export default function DiscussionPageSimple() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+    <div
+      className="min-h-screen bg-[#0a0a0f] overflow-hidden"
+      style={{
+        fontFamily:
+          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      }}
+    >
       <Navigation />
 
-      <main className="pt-16">
+      {/* Animated Background - giống HeroSection */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-fuchsia-950/30 to-[#0a0a0f]" />
+
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -left-48 w-96 h-96 bg-violet-600 rounded-full blur-[128px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-1/4 -right-48 w-96 h-96 bg-fuchsia-600 rounded-full blur-[128px]"
+        />
+
+        <div
+          className="absolute inset-0 opacity-[0.015] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 pt-16">
+        {/* Back Button */}
+        <div className="pt-8 px-6 max-w-7xl mx-auto">
+          <Link href="/">
+            <motion.button
+              whileHover={{ x: -4 }}
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              <span>Về trang chủ</span>
+            </motion.button>
+          </Link>
+        </div>
+
         {/* Header */}
-        <section className="py-20 px-10 text-center">
-          <motion.h1
+        <section className="py-16 px-6 text-center max-w-5xl mx-auto">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold text-white mb-4"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 backdrop-blur-xl border border-white/10 mb-8"
           >
-            Thảo luận & Khảo sát
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            <Sparkles className="w-4 h-4 text-violet-400" />
+            <span className="text-sm font-medium tracking-wide text-violet-200">
+              Thảo luận & Khảo sát
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-200 max-w-3xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-6xl md:text-7xl font-bold mb-6"
+            style={{
+              fontFamily: "'Instrument Serif', Georgia, serif",
+              fontWeight: 400,
+            }}
+          >
+            <span className="block bg-gradient-to-br from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
+              Thảo luận Triết học
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-xl text-gray-400 leading-relaxed"
           >
             Triết học không chỉ để học, mà để tranh luận. Hãy chia sẻ cách bạn
             hiểu "giới tính" trong thời đại hôm nay.
@@ -94,178 +172,251 @@ export default function DiscussionPageSimple() {
         </section>
 
         {/* Survey Section */}
-        <section className="py-10 px-4">
+        <section className="py-10 px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Survey Question */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
-              >
-                <h2 className="text-3xl font-bold text-white mb-6">
-                  Giới tính là gì theo bạn?
-                </h2>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 mb-8 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+            >
+              <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+                Khảo sát: Giới tính là gì theo bạn?
+              </h2>
 
-                <div className="space-y-4">
-                  {[
-                    { id: "1", text: "Bản chất sinh học", emoji: "🧬" },
-                    { id: "2", text: "Cấu trúc xã hội", emoji: "🏛️" },
-                    { id: "3", text: "Sự kết hợp của cả hai", emoji: "⚖️" },
-                    {
-                      id: "4",
-                      text: 'Một dạng "trình diễn" cá nhân',
-                      emoji: "🎭",
-                    },
-                  ].map((option) => (
-                    <motion.button
-                      key={option.id}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => handleVote(option.id)}
-                      disabled={hasVoted}
-                      className={`w-full p-4 rounded-lg text-left transition-all duration-200 ${
-                        selectedAnswer === option.id
-                          ? "bg-yellow-500 text-black"
-                          : hasVoted
-                          ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-                          : "bg-white/20 hover:bg-white/30 text-white"
-                      }`}
+              <div className="grid lg:grid-cols-2 gap-10">
+                {/* Survey Question */}
+                <div>
+                  <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                    Chọn quan điểm của bạn
+                  </h3>
+
+                  <div className="space-y-4">
+                    {[
+                      {
+                        id: "1",
+                        text: "Bản chất sinh học",
+                        emoji: "🧬",
+                        color: "from-red-500 to-pink-500",
+                      },
+                      {
+                        id: "2",
+                        text: "Cấu trúc xã hội",
+                        emoji: "🏛️",
+                        color: "from-blue-500 to-cyan-500",
+                      },
+                      {
+                        id: "3",
+                        text: "Sự kết hợp của cả hai",
+                        emoji: "⚖️",
+                        color: "from-yellow-500 to-orange-500",
+                      },
+                      {
+                        id: "4",
+                        text: 'Một dạng "trình diễn" cá nhân',
+                        emoji: "🎭",
+                        color: "from-purple-500 to-violet-500",
+                      },
+                    ].map((option) => {
+                      const getButtonClass = () => {
+                        if (selectedAnswer === option.id) {
+                          return "bg-gradient-to-r from-yellow-500 to-orange-500 text-black shadow-lg shadow-yellow-500/30";
+                        }
+                        if (hasVoted) {
+                          return "bg-white/[0.05] text-gray-400 cursor-not-allowed border border-white/[0.1]";
+                        }
+                        return "bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] hover:border-white/[0.2]";
+                      };
+
+                      return (
+                        <motion.button
+                          key={option.id}
+                          whileHover={{ scale: 1.02, y: -2 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => handleVote(option.id)}
+                          disabled={hasVoted}
+                          className={`w-full p-6 rounded-2xl text-left transition-all duration-300 ${getButtonClass()}`}
+                        >
+                          <div className="flex items-center space-x-4">
+                            <span className="text-3xl">{option.emoji}</span>
+                            <span className="text-lg font-medium">
+                              {option.text}
+                            </span>
+                          </div>
+                        </motion.button>
+                      );
+                    })}
+                  </div>
+
+                  {hasVoted && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-6 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl"
                     >
-                      <div className="flex items-center space-x-4">
-                        <span className="text-2xl">{option.emoji}</span>
-                        <span className="text-lg font-medium">
-                          {option.text}
-                        </span>
-                      </div>
-                    </motion.button>
-                  ))}
+                      <p className="text-green-300 font-medium text-lg">
+                        ✅ Cảm ơn bạn đã tham gia khảo sát!
+                      </p>
+                    </motion.div>
+                  )}
                 </div>
 
-                {hasVoted && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mt-6 p-4 bg-green-500/20 border border-green-500 rounded-lg"
-                  >
-                    <p className="text-green-300 font-medium">
-                      ✅ Cảm ơn bạn đã tham gia khảo sát!
-                    </p>
-                  </motion.div>
-                )}
-              </motion.div>
+                {/* Survey Results */}
+                <div>
+                  <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
+                    <BarChart3 className="w-5 h-5" />
+                    Kết quả khảo sát hiện tại
+                  </h3>
 
-              {/* Survey Results - Simple Text Version */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
-              >
-                <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                  <BarChart3 className="w-6 h-6 mr-2" />
-                  Kết quả khảo sát
-                </h3>
-
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-white">Bản chất sinh học</span>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-32 bg-gray-700 rounded-full h-2">
-                        <div className="bg-red-500 h-2 rounded-full" style={{ width: '15%' }}></div>
-                      </div>
-                      <span className="text-white text-sm">15%</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white">Cấu trúc xã hội</span>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-32 bg-gray-700 rounded-full h-2">
-                        <div className="bg-blue-500 h-2 rounded-full" style={{ width: '35%' }}></div>
-                      </div>
-                      <span className="text-white text-sm">35%</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white">Sự kết hợp của cả hai</span>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-32 bg-gray-700 rounded-full h-2">
-                        <div className="bg-yellow-500 h-2 rounded-full" style={{ width: '40%' }}></div>
-                      </div>
-                      <span className="text-white text-sm">40%</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white">Một dạng "trình diễn" cá nhân</span>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-32 bg-gray-700 rounded-full h-2">
-                        <div className="bg-cyan-500 h-2 rounded-full" style={{ width: '10%' }}></div>
-                      </div>
-                      <span className="text-white text-sm">10%</span>
-                    </div>
+                  <div className="space-y-6">
+                    {[
+                      {
+                        label: "Bản chất sinh học",
+                        percentage: 15,
+                        color: "bg-red-500",
+                      },
+                      {
+                        label: "Cấu trúc xã hội",
+                        percentage: 35,
+                        color: "bg-blue-500",
+                      },
+                      {
+                        label: "Sự kết hợp của cả hai",
+                        percentage: 40,
+                        color: "bg-yellow-500",
+                      },
+                      {
+                        label: 'Một dạng "trình diễn" cá nhân',
+                        percentage: 10,
+                        color: "bg-purple-500",
+                      },
+                    ].map((item, index) => (
+                      <motion.div
+                        key={item.label}
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="space-y-2"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="text-white font-medium">
+                            {item.label}
+                          </span>
+                          <span className="text-white text-sm font-bold">
+                            {item.percentage}%
+                          </span>
+                        </div>
+                        <div className="w-full bg-white/[0.1] rounded-full h-3">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${item.percentage}%` }}
+                            transition={{ duration: 1, delay: index * 0.2 }}
+                            className={`h-3 rounded-full ${item.color}`}
+                          />
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Comments Section */}
-        <section className="py-10 px-4">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-10 px-6">
+          <div className="max-w-6xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
+              viewport={{ once: true }}
+              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                <MessageCircle className="w-6 h-6 mr-2" />
-                Bình luận nổi bật
-              </h3>
+              <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+                Thảo luận cộng đồng
+              </h2>
 
               {/* Comment Form */}
-              <form onSubmit={handleSubmitComment} className="mb-8">
-                <div className="flex space-x-4">
-                  <input
-                    type="text"
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Chia sẻ quan điểm của bạn..."
-                    className="flex-1 p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:border-yellow-400"
-                  />
-                  <button
-                    type="submit"
-                    className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors duration-200"
-                  >
-                    Gửi
-                  </button>
-                </div>
-              </form>
+              <div className="mb-10">
+                <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  Chia sẻ quan điểm của bạn
+                </h3>
+                <form onSubmit={handleSubmitComment}>
+                  <div className="flex space-x-4">
+                    <input
+                      type="text"
+                      value={newComment}
+                      onChange={(e) => setNewComment(e.target.value)}
+                      placeholder="Viết bình luận của bạn về quan điểm giới tính..."
+                      className="flex-1 p-4 rounded-2xl bg-white/[0.05] text-white placeholder-gray-400 border border-white/[0.1] focus:outline-none focus:border-yellow-400 focus:bg-white/[0.08] transition-all duration-300"
+                    />
+                    <motion.button
+                      type="submit"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-bold rounded-2xl transition-all duration-300 shadow-lg shadow-yellow-500/30"
+                    >
+                      Gửi
+                    </motion.button>
+                  </div>
+                </form>
+              </div>
 
               {/* Comments List */}
-              <div className="space-y-4">
-                {comments.map((comment) => (
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  Bình luận nổi bật
+                </h3>
+                {comments.map((comment, index) => (
                   <motion.div
                     key={comment.id}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-white/5 rounded-lg p-4"
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white/[0.05] rounded-2xl p-6 hover:bg-white/[0.08] transition-all duration-300"
                   >
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-bold text-white">{comment.author}</h4>
-                      <span className="text-gray-400 text-sm">
-                        {comment.timestamp}
-                      </span>
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">
+                            {comment.author.charAt(0)}
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-white">
+                            {comment.author}
+                          </h4>
+                          <span className="text-gray-400 text-sm">
+                            {comment.timestamp}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-gray-200 mb-3">{comment.content}</p>
-                    <div className="flex space-x-4">
-                      <button className="flex items-center space-x-1 text-gray-400 hover:text-green-400 transition-colors">
+                    <p className="text-gray-200 mb-4 leading-relaxed">
+                      {comment.content}
+                    </p>
+                    <div className="flex space-x-6">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        className="flex items-center space-x-2 text-gray-400 hover:text-green-400 transition-colors duration-300"
+                      >
                         <ThumbsUp className="w-4 h-4" />
-                        <span>{comment.likes}</span>
-                      </button>
-                      <button className="flex items-center space-x-1 text-gray-400 hover:text-red-400 transition-colors">
+                        <span className="text-sm font-medium">
+                          {comment.likes}
+                        </span>
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        className="flex items-center space-x-2 text-gray-400 hover:text-red-400 transition-colors duration-300"
+                      >
                         <ThumbsDown className="w-4 h-4" />
-                        <span>{comment.dislikes}</span>
-                      </button>
+                        <span className="text-sm font-medium">
+                          {comment.dislikes}
+                        </span>
+                      </motion.button>
                     </div>
                   </motion.div>
                 ))}
@@ -275,48 +426,60 @@ export default function DiscussionPageSimple() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-20 px-10 bg-black/20 backdrop-blur-sm">
+        <section className="py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl font-bold text-white mb-8"
+              viewport={{ once: true }}
+              className="text-5xl font-bold text-white mb-6"
+              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
             >
-              Bạn muốn hiểu thêm?
+              <span className="bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+                Khám phá thêm
+              </span>
             </motion.h2>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-200 mb-8"
+              className="text-xl text-gray-400 mb-10"
             >
               Hãy xem lại Timeline Tư tưởng hoặc Comic Strip để tìm triết gia
               bạn đồng cảm nhất.
             </motion.p>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-5 justify-center"
             >
-              <a
-                href="/"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg transition-colors duration-200"
-              >
-                Khám phá Timeline
-              </a>
-              <a
-                href="/comic"
-                className="border-2 border-white text-white hover:bg-white hover:text-black font-bold py-4 px-8 rounded-lg transition-colors duration-200"
-              >
-                Đọc Comic Strip
-              </a>
+              <Link href="/timeline">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold py-4 px-9 rounded-full shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:shadow-yellow-500/40 transition-all duration-300 flex items-center justify-center gap-3"
+                >
+                  <TrendingUp className="w-5 h-5" />
+                  <span>Khám phá Timeline</span>
+                </motion.button>
+              </Link>
+
+              <Link href="/comic">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-bold py-4 px-9 rounded-full transition-all duration-300"
+                >
+                  Đọc Comic Strip
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
