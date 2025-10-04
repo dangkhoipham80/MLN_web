@@ -6,23 +6,25 @@ import { Sphere, Text, Html } from "@react-three/drei";
 import { useRouter } from "next/navigation";
 import * as THREE from "three";
 
+interface Philosopher {
+  name: string;
+  era: string;
+  nationality: string;
+  quote: string;
+  summary: string;
+  keyIdeas: string[];
+  works: string[];
+  influence: string;
+  modernRelevance: string;
+}
+
 interface TimelineNodeProps {
   readonly position: [number, number, number];
-  readonly philosopher: {
-    name: string;
-    era: string;
-    nationality: string;
-    quote: string;
-    summary: string;
-    keyIdeas: string[];
-    works: string[];
-    influence: string;
-    modernRelevance: string;
-  };
+  readonly philosopher: Philosopher;
   readonly color: string;
-  readonly onHover: (philosopher: any) => void;
+  readonly onHover: (philosopher: Philosopher) => void;
   readonly onLeave: () => void;
-  readonly onClick: (philosopher: any) => void;
+  readonly onClick: (philosopher: Philosopher) => void;
 }
 
 function TimelineNode({
@@ -36,7 +38,7 @@ function TimelineNode({
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.01;
       if (hovered) {
@@ -88,11 +90,12 @@ function TimelineNode({
   );
 }
 
-export default function TimelineScene() {
+export default function WorkingTimelineScene() {
   const router = useRouter();
-  const [hoveredPhilosopher, setHoveredPhilosopher] = useState<any>(null);
+  const [hoveredPhilosopher, setHoveredPhilosopher] =
+    useState<Philosopher | null>(null);
 
-  const philosophers = [
+  const philosophers: Philosopher[] = [
     {
       name: "Plato",
       era: "427-347 TCN",
@@ -192,12 +195,12 @@ export default function TimelineScene() {
     },
   ];
 
-  const handlePhilosopherClick = (philosopher: any) => {
+  const handlePhilosopherClick = (philosopher: Philosopher) => {
     const name = philosopher.name.toLowerCase().replace(/\s+/g, "-");
     router.push(`/philosopher/${name}`);
   };
 
-  const handleHover = (philosopher: any) => {
+  const handleHover = (philosopher: Philosopher) => {
     setHoveredPhilosopher(philosopher);
   };
 

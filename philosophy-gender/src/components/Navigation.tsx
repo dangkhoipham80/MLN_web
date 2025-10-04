@@ -10,10 +10,10 @@ export default function Navigation() {
 
   const navItems = [
     { name: "Trang chủ", href: "/", icon: BookOpen },
-    { name: "Timeline", href: "/#timeline", icon: Clock },
+    { name: "Timeline", href: "/timeline", icon: Clock },
     { name: "Comic", href: "/comic", icon: BookOpen },
     { name: "Thảo luận", href: "/discussion", icon: MessageCircle },
-    { name: "Nhóm", href: "/#team", icon: Users },
+    { name: "Nhóm", href: "/team", icon: Users },
   ];
 
   return (
