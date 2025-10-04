@@ -12,6 +12,7 @@ import {
   Quote,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 
 const comics = [
@@ -400,6 +401,8 @@ export default function ComicPage() {
           </div>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 }

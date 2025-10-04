@@ -13,6 +13,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export default function DiscussionPage() {
@@ -480,6 +481,8 @@ export default function DiscussionPage() {
           </div>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 }

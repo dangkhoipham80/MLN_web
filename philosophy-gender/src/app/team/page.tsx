@@ -11,6 +11,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function TeamPage() {
   const teamMembers = [
@@ -423,6 +424,8 @@ export default function TeamPage() {
           </div>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 }

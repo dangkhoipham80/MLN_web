@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import WorkingTimelineScene from "@/components/WorkingTimelineScene";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function Timeline3DPage() {
   return (
@@ -150,6 +151,8 @@ export default function Timeline3DPage() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

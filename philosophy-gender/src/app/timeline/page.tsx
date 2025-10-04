@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowLeft, Clock, Users, BookOpen } from "lucide-react";
 
@@ -409,6 +410,8 @@ export default function TimelinePage() {
           </div>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 }
