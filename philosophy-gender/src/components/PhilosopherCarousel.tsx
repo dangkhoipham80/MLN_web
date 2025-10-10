@@ -465,7 +465,6 @@ export default function PhilosopherCarousel({
               className="w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
               style={{
                 backgroundColor: index === currentIndex ? "#C78B4E" : "#7A6A53",
-                focusRingColor: "#C78B4E",
                 boxShadow:
                   index === currentIndex
                     ? "0 0 8px rgba(199, 139, 78, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2)"
