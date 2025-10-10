@@ -3,10 +3,67 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PhilosopherCarousel from "@/components/PhilosopherCarousel";
 import Link from "next/link";
-import { ArrowLeft, Clock, Users, BookOpen } from "lucide-react";
+import {
+  ArrowLeft,
+  Clock,
+  Users,
+  BookOpen,
+  Sparkles,
+  Zap,
+  Eye,
+  MousePointer,
+  Globe,
+} from "lucide-react";
 
 export default function TimelinePage() {
+  const philosophers = [
+    {
+      name: "Plato",
+      era: "427-347 TCN",
+      description: "Linh hồn phi giới, bình đẳng lý trí",
+      image: "/assets/plato.jpg",
+      quote:
+        "Linh hồn con người là bất biến. Giới tính chỉ là vỏ bọc tạm thời.",
+    },
+    {
+      name: "Aristotle",
+      era: "384-322 TCN",
+      description: "Phân biệt giới theo tự nhiên",
+      image: "/assets/aristotle.jpg",
+      quote: "Nam là hình thức, nữ là vật chất. Đó là trật tự tự nhiên.",
+    },
+    {
+      name: "Wollstonecraft",
+      era: "1759-1797",
+      description: "Tiên phong nữ quyền, quyền giáo dục",
+      image: "/assets/wollstonecraft.jpg",
+      quote: "Phụ nữ không yếu đuối bởi tự nhiên, mà bởi giáo dục.",
+    },
+    {
+      name: "J.S. Mill",
+      era: "1806-1873",
+      description: "Tự do cá nhân, bình đẳng giới",
+      image: "/assets/mill.jpg",
+      quote: "Tự do cá nhân là nguyên tắc cao nhất của xã hội.",
+    },
+    {
+      name: "de Beauvoir",
+      era: "1908-1986",
+      description: "Giới là sản phẩm xã hội",
+      image: "/assets/beauvoir.jpg",
+      quote: "Người ta không sinh ra là phụ nữ, mà trở thành phụ nữ.",
+    },
+    {
+      name: "Butler",
+      era: "1956-nay",
+      description: "Giới là màn trình diễn",
+      image: "/assets/butler.jpg",
+      quote: "Giới tính là màn trình diễn, không phải bản chất.",
+    },
+  ];
+
   const timelineData = [
     {
       era: "Cổ đại",
@@ -17,8 +74,7 @@ export default function TimelinePage() {
           influence: "Khởi đầu cho tư tưởng bình đẳng tinh thần.",
           color: "from-purple-500 to-violet-500",
           link: "/philosopher/plato",
-          image:
-            "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=200&h=200&fit=crop&crop=face",
+          image: "/assets/plato.jpg",
           quote:
             "Linh hồn con người là bất biến. Giới tính chỉ là vỏ bọc tạm thời.",
         },
@@ -28,8 +84,7 @@ export default function TimelinePage() {
           influence: "Củng cố hệ thống gia trưởng.",
           color: "from-blue-500 to-cyan-500",
           link: "/philosopher/aristotle",
-          image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
+          image: "/assets/aristotle.jpg",
           quote: "Nam là hình thức, nữ là vật chất. Đó là trật tự tự nhiên.",
         },
       ],
@@ -43,8 +98,7 @@ export default function TimelinePage() {
           influence: "Tiền đề cho nữ quyền hiện đại.",
           color: "from-yellow-500 to-orange-500",
           link: "/philosopher/mary-wollstonecraft",
-          image:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face",
+          image: "/assets/wollstonecraft.jpg",
           quote: "Phụ nữ không yếu đuối bởi tự nhiên, mà bởi giáo dục.",
         },
       ],
@@ -58,8 +112,7 @@ export default function TimelinePage() {
           influence: "Mở đường cho chủ nghĩa tự do nữ quyền.",
           color: "from-green-500 to-emerald-500",
           link: "/philosopher/john-stuart-mill",
-          image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+          image: "/assets/mill.jpg",
           quote: "Tự do cá nhân là nguyên tắc cao nhất của xã hội.",
         },
       ],
@@ -73,8 +126,7 @@ export default function TimelinePage() {
           influence: "Triết học hiện sinh và nữ quyền.",
           color: "from-pink-500 to-rose-500",
           link: "/philosopher/simone-de-beauvoir",
-          image:
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face",
+          image: "/assets/beauvoir.jpg",
           quote: "Người ta không sinh ra là phụ nữ, mà trở thành phụ nữ.",
         },
       ],
@@ -88,8 +140,7 @@ export default function TimelinePage() {
           influence: "Cơ sở lý luận cho queer theory.",
           color: "from-fuchsia-500 to-purple-500",
           link: "/philosopher/judith-butler",
-          image:
-            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
+          image: "/assets/butler.jpg",
           quote: "Giới tính là màn trình diễn, không phải bản chất.",
         },
       ],
@@ -103,8 +154,7 @@ export default function TimelinePage() {
           influence: "Triết học về giới trong AI và Ethics.",
           color: "from-cyan-500 to-blue-500",
           link: "/discussion",
-          image:
-            "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=200&h=200&fit=crop&crop=face",
+          image: "/assets/ai-gender.jpg",
           quote: "AI phản ánh thiên kiến của những người tạo ra nó.",
         },
       ],
@@ -113,109 +163,25 @@ export default function TimelinePage() {
 
   return (
     <div
-      className="min-h-screen bg-[#0a0a0f] overflow-hidden"
+      className="min-h-screen overflow-hidden"
       style={{
+        backgroundColor: "#F4EFE6",
         fontFamily:
-          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
       <Navigation />
 
-      {/* Enhanced Animated Background */}
+      {/* Philosophical Study Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-fuchsia-950/30 to-[#0a0a0f]" />
-
-        {/* Multiple floating orbs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 0.8, 1],
-            opacity: [0.3, 0.6, 0.2, 0.3],
-            x: [0, 50, -30, 0],
-            y: [0, -30, 20, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -left-48 w-96 h-96 bg-violet-600 rounded-full blur-[128px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 0.8, 1.3, 1],
-            opacity: [0.2, 0.5, 0.1, 0.2],
-            x: [0, -40, 60, 0],
-            y: [0, 40, -20, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-1/4 -right-48 w-96 h-96 bg-fuchsia-600 rounded-full blur-[128px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 0.9, 1],
-            opacity: [0.1, 0.3, 0.05, 0.1],
-            x: [0, 30, -50, 0],
-            y: [0, -50, 30, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-          className="absolute top-3/4 left-1/4 w-64 h-64 bg-purple-600 rounded-full blur-[96px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 0.9, 1.2, 1],
-            opacity: [0.15, 0.4, 0.08, 0.15],
-            x: [0, -60, 40, 0],
-            y: [0, 30, -40, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 6,
-          }}
-          className="absolute top-1/2 right-1/3 w-80 h-80 bg-pink-600 rounded-full blur-[112px]"
-        />
-
-        {/* Animated noise texture */}
-        <motion.div
-          animate={{
-            opacity: [0.015, 0.025, 0.01, 0.015],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 mix-blend-overlay"
+        {/* Subtle parchment texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 10h20M10 0v20' stroke='%23C78B4E' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23paper)'/%3E%3C/svg%3E")`,
           }}
         />
-
-        {/* Floating particles */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={`particle-${i}`}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut",
-            }}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
       </div>
 
       {/* Content */}
@@ -225,7 +191,12 @@ export default function TimelinePage() {
           <Link href="/">
             <motion.button
               whileHover={{ x: -4 }}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-2 transition-colors duration-300"
+              style={{
+                color: "#7A6A53",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
               <ArrowLeft className="w-5 h-5" />
               <span>Về trang chủ</span>
@@ -234,91 +205,178 @@ export default function TimelinePage() {
         </div>
 
         {/* Enhanced Header */}
-        <section className="py-20 px-6 text-center max-w-6xl mx-auto">
+        <section className="py-24 px-6 text-center max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            initial={{ opacity: 0, scale: 0.8, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 backdrop-blur-xl border border-white/20 mb-10 shadow-lg shadow-violet-500/20"
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full backdrop-blur-xl border shadow-sm mb-12"
+            style={{
+              backgroundColor: "#C78B4E",
+              border: "1px solid #7A6A53",
+            }}
           >
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             >
-              <Clock className="w-5 h-5 text-violet-400" />
+              <Globe className="w-6 h-6" style={{ color: "#F4EFE6" }} />
             </motion.div>
-            <span className="text-sm font-medium tracking-wide text-violet-200">
-              Timeline Triết học
+            <span
+              className="text-lg font-medium tracking-wide"
+              style={{
+                color: "#F4EFE6",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
+            >
+              Timeline Tương tác
             </span>
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Sparkles className="w-5 h-5" style={{ color: "#F4EFE6" }} />
+            </motion.div>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            initial={{ opacity: 0, y: 60, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="text-7xl md:text-8xl font-bold mb-8"
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+            className="text-8xl md:text-9xl font-bold mb-8"
             style={{
-              fontFamily: "'Instrument Serif', Georgia, serif",
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
               fontWeight: 400,
             }}
           >
-            <motion.span
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="block bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent bg-[length:200%_100%]"
-            >
-              Timeline Tư tưởng
-            </motion.span>
+            Timeline Triết học
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto"
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-2xl leading-relaxed max-w-4xl mx-auto mb-12"
+            style={{
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+            }}
           >
             <motion.span
-              animate={{ opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="text-violet-300 font-medium"
+              animate={{ opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="font-medium"
+              style={{ color: "#C78B4E" }}
             >
-              "Giới tính trong Triết học qua các thời đại"
+              Khám phá sự tiến hóa của tư tưởng về giới
             </motion.span>{" "}
-            - Khám phá sự tiến hóa của tư tưởng từ cổ đại đến hiện đại
+            qua các thời đại trong không gian đầy mê hoặc
           </motion.p>
 
-          {/* Animated scroll indicator */}
+          {/* Interactive Elements Preview */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-12"
+            className="flex justify-center gap-8 mb-16"
           >
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-6 h-10 border-2 border-violet-400 rounded-full mx-auto flex justify-center"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="flex items-center gap-2 px-4 py-2 backdrop-blur-xl rounded-full border shadow-sm"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
+              <MousePointer className="w-4 h-4" style={{ color: "#C78B4E" }} />
+              <span
+                className="text-sm"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
                 }}
-                className="w-1 h-3 bg-gradient-to-b from-violet-400 to-fuchsia-400 rounded-full mt-2"
-              />
+              >
+                Kéo để xoay
+              </span>
             </motion.div>
-            <motion.p
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="text-sm text-gray-400 mt-2"
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+              className="flex items-center gap-2 px-4 py-2 backdrop-blur-xl rounded-full border shadow-sm"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              Cuộn để khám phá
-            </motion.p>
+              <Eye className="w-4 h-4" style={{ color: "#C78B4E" }} />
+              <span
+                className="text-sm"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
+                Hover để xem
+              </span>
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+              className="flex items-center gap-2 px-4 py-2 backdrop-blur-xl rounded-full border shadow-sm"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
+            >
+              <Zap className="w-4 h-4" style={{ color: "#C78B4E" }} />
+              <span
+                className="text-sm"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
+                Click để khám phá
+              </span>
+            </motion.div>
+          </motion.div>
+        </section>
+
+        {/* Philosopher Carousel Section */}
+        <section
+          id="carousel"
+          className="relative mb-20"
+          style={{ height: "calc(100vh - 100px)" }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="relative w-full h-full rounded-lg overflow-hidden border shadow-lg"
+            style={{
+              border: "1px solid #7A6A53",
+            }}
+          >
+            <PhilosopherCarousel philosophers={philosophers} />
           </motion.div>
         </section>
 
@@ -329,9 +387,21 @@ export default function TimelinePage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300 overflow-x-auto"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 shadow-sm hover:shadow-md transition-all duration-500 overflow-x-auto"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+              <h2
+                className="text-4xl font-bold mb-8 text-center"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Dòng thời gian Triết học về Giới tính
               </h2>
 
@@ -343,18 +413,47 @@ export default function TimelinePage() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: periodIndex * 0.1 }}
-                    className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-8 hover:bg-white/[0.05] hover:border-white/[0.15] transition-all duration-300"
+                    transition={{
+                      delay: periodIndex * 0.1,
+                      duration: 0.8,
+                      ease: "easeOut",
+                    }}
+                    className="rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-500"
+                    style={{
+                      backgroundColor: "#F4EFE6",
+                      border: "1px solid #7A6A53",
+                    }}
                   >
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center">
-                        <Clock className="w-6 h-6 text-white" />
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm"
+                        style={{ backgroundColor: "#C78B4E" }}
+                      >
+                        <Clock
+                          className="w-6 h-6"
+                          style={{ color: "#F4EFE6" }}
+                        />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-white">
+                        <h3
+                          className="text-2xl font-bold"
+                          style={{
+                            color: "#3B3A36",
+                            fontFamily:
+                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          }}
+                        >
                           {period.era}
                         </h3>
-                        <p className="text-gray-400">Thời kỳ triết học</p>
+                        <p
+                          style={{
+                            color: "#7A6A53",
+                            fontFamily:
+                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          }}
+                        >
+                          Thời kỳ triết học
+                        </p>
                       </div>
                     </div>
 
@@ -368,7 +467,7 @@ export default function TimelinePage() {
                             viewport={{ once: true }}
                             transition={{
                               delay: (periodIndex + philosopherIndex) * 0.1,
-                              duration: 0.6,
+                              duration: 0.8,
                               ease: "easeOut",
                             }}
                             whileHover={{
@@ -377,13 +476,18 @@ export default function TimelinePage() {
                               rotateY: 5,
                               transition: { duration: 0.3 },
                             }}
-                            className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-violet-500/20"
+                            className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-500"
+                            style={{
+                              backgroundColor: "#F4EFE6",
+                              border: "1px solid #7A6A53",
+                            }}
                           >
                             <div className="flex items-start gap-4 mb-4">
                               <motion.div
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 transition={{ duration: 0.3 }}
-                                className="w-16 h-16 rounded-full overflow-hidden border-3 border-white/20 shadow-lg flex-shrink-0 relative group"
+                                className="w-16 h-16 rounded-full overflow-hidden border-3 shadow-lg flex-shrink-0 relative group"
+                                style={{ borderColor: "#7A6A53" }}
                               >
                                 <motion.img
                                   src={philosopher.image}
@@ -395,20 +499,41 @@ export default function TimelinePage() {
                                 <motion.div
                                   initial={{ opacity: 0 }}
                                   whileHover={{ opacity: 1 }}
-                                  className="absolute inset-0 bg-gradient-to-t from-violet-500/20 to-transparent"
+                                  className="absolute inset-0"
+                                  style={{
+                                    backgroundColor: "rgba(199, 139, 78, 0.2)",
+                                  }}
                                 />
                               </motion.div>
                               <div className="flex-1">
                                 <Link href={philosopher.link}>
-                                  <h4 className="text-lg font-bold text-white hover:text-violet-300 transition-colors duration-200 cursor-pointer">
+                                  <h4
+                                    className="text-lg font-bold hover:opacity-70 transition-colors duration-200 cursor-pointer"
+                                    style={{
+                                      color: "#3B3A36",
+                                      fontFamily:
+                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                    }}
+                                  >
                                     {philosopher.name}
                                   </h4>
                                 </Link>
                                 <div
-                                  className={`inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r ${philosopher.color} mt-2`}
+                                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full mt-2"
+                                  style={{ backgroundColor: "#C78B4E" }}
                                 >
-                                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                                  <span className="text-xs font-medium text-white">
+                                  <div
+                                    className="w-2 h-2 rounded-full"
+                                    style={{ backgroundColor: "#F4EFE6" }}
+                                  ></div>
+                                  <span
+                                    className="text-xs font-medium"
+                                    style={{
+                                      color: "#F4EFE6",
+                                      fontFamily:
+                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                    }}
+                                  >
                                     Triết gia
                                   </span>
                                 </div>
@@ -417,19 +542,47 @@ export default function TimelinePage() {
 
                             <div className="space-y-3">
                               <div>
-                                <p className="text-sm font-medium text-gray-300 mb-1">
+                                <p
+                                  className="text-sm font-medium mb-1"
+                                  style={{
+                                    color: "#C78B4E",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   Quan điểm:
                                 </p>
-                                <p className="text-gray-200 text-sm">
+                                <p
+                                  className="text-sm"
+                                  style={{
+                                    color: "#3B3A36",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   {philosopher.view}
                                 </p>
                               </div>
 
                               <div>
-                                <p className="text-sm font-medium text-gray-300 mb-1">
+                                <p
+                                  className="text-sm font-medium mb-1"
+                                  style={{
+                                    color: "#C78B4E",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   Ảnh hưởng:
                                 </p>
-                                <p className="text-gray-200 text-sm">
+                                <p
+                                  className="text-sm"
+                                  style={{
+                                    color: "#3B3A36",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   {philosopher.influence}
                                 </p>
                               </div>
@@ -442,22 +595,16 @@ export default function TimelinePage() {
                                   delay:
                                     (periodIndex + philosopherIndex) * 0.1 +
                                     0.3,
+                                  duration: 0.8,
+                                  ease: "easeOut",
                                 }}
                                 whileHover={{ scale: 1.02, x: 5 }}
-                                className="bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border-l-4 border-violet-400 p-3 rounded-r-lg relative overflow-hidden"
+                                className="border-l-4 p-3 rounded-r-lg relative overflow-hidden"
+                                style={{
+                                  backgroundColor: "#F4EFE6",
+                                  borderLeftColor: "#C78B4E",
+                                }}
                               >
-                                <motion.div
-                                  initial={{ scaleX: 0 }}
-                                  whileInView={{ scaleX: 1 }}
-                                  viewport={{ once: true }}
-                                  transition={{
-                                    delay:
-                                      (periodIndex + philosopherIndex) * 0.1 +
-                                      0.5,
-                                    duration: 0.8,
-                                  }}
-                                  className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-fuchsia-500/5 origin-left"
-                                />
                                 <motion.p
                                   initial={{ opacity: 0 }}
                                   whileInView={{ opacity: 1 }}
@@ -465,9 +612,16 @@ export default function TimelinePage() {
                                   transition={{
                                     delay:
                                       (periodIndex + philosopherIndex) * 0.1 +
-                                      0.7,
+                                      0.5,
+                                    duration: 0.8,
+                                    ease: "easeOut",
                                   }}
-                                  className="text-gray-300 italic text-sm relative z-10"
+                                  className="italic text-sm relative z-10"
+                                  style={{
+                                    color: "#3B3A36",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
                                 >
                                   "{philosopher.quote}"
                                 </motion.p>
@@ -488,14 +642,35 @@ export default function TimelinePage() {
                     key={period.era}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: periodIndex * 0.1 }}
-                    className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6"
+                    transition={{
+                      delay: periodIndex * 0.1,
+                      duration: 0.8,
+                      ease: "easeOut",
+                    }}
+                    className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-500"
+                    style={{
+                      backgroundColor: "#F4EFE6",
+                      border: "1px solid #7A6A53",
+                    }}
                   >
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
-                        <Clock className="w-5 h-5 text-white" />
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center shadow-sm"
+                        style={{ backgroundColor: "#C78B4E" }}
+                      >
+                        <Clock
+                          className="w-5 h-5"
+                          style={{ color: "#F4EFE6" }}
+                        />
                       </div>
-                      <h3 className="text-xl font-bold text-white">
+                      <h3
+                        className="text-xl font-bold"
+                        style={{
+                          color: "#3B3A36",
+                          fontFamily:
+                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        }}
+                      >
                         {period.era}
                       </h3>
                     </div>
@@ -509,11 +684,20 @@ export default function TimelinePage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{
                               delay: (periodIndex + philosopherIndex) * 0.1,
+                              duration: 0.8,
+                              ease: "easeOut",
                             }}
-                            className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-xl p-4"
+                            className="rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-500"
+                            style={{
+                              backgroundColor: "#F4EFE6",
+                              border: "1px solid #7A6A53",
+                            }}
                           >
                             <div className="flex items-start gap-3 mb-3">
-                              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 shadow-lg flex-shrink-0">
+                              <div
+                                className="w-12 h-12 rounded-full overflow-hidden border-2 shadow-lg flex-shrink-0"
+                                style={{ borderColor: "#7A6A53" }}
+                              >
                                 <img
                                   src={philosopher.image}
                                   alt={philosopher.name}
@@ -522,15 +706,33 @@ export default function TimelinePage() {
                               </div>
                               <div className="flex-1">
                                 <Link href={philosopher.link}>
-                                  <h4 className="text-base font-bold text-white hover:text-violet-300 transition-colors duration-200 cursor-pointer">
+                                  <h4
+                                    className="text-base font-bold hover:opacity-70 transition-colors duration-200 cursor-pointer"
+                                    style={{
+                                      color: "#3B3A36",
+                                      fontFamily:
+                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                    }}
+                                  >
                                     {philosopher.name}
                                   </h4>
                                 </Link>
                                 <div
-                                  className={`inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r ${philosopher.color} mt-1`}
+                                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full mt-1"
+                                  style={{ backgroundColor: "#C78B4E" }}
                                 >
-                                  <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                                  <span className="text-xs font-medium text-white">
+                                  <div
+                                    className="w-1.5 h-1.5 rounded-full"
+                                    style={{ backgroundColor: "#F4EFE6" }}
+                                  ></div>
+                                  <span
+                                    className="text-xs font-medium"
+                                    style={{
+                                      color: "#F4EFE6",
+                                      fontFamily:
+                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                    }}
+                                  >
                                     Triết gia
                                   </span>
                                 </div>
@@ -539,25 +741,66 @@ export default function TimelinePage() {
 
                             <div className="space-y-2">
                               <div>
-                                <p className="text-xs font-medium text-gray-300 mb-1">
+                                <p
+                                  className="text-xs font-medium mb-1"
+                                  style={{
+                                    color: "#C78B4E",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   Quan điểm:
                                 </p>
-                                <p className="text-gray-200 text-sm">
+                                <p
+                                  className="text-sm"
+                                  style={{
+                                    color: "#3B3A36",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   {philosopher.view}
                                 </p>
                               </div>
 
                               <div>
-                                <p className="text-xs font-medium text-gray-300 mb-1">
+                                <p
+                                  className="text-xs font-medium mb-1"
+                                  style={{
+                                    color: "#C78B4E",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   Ảnh hưởng:
                                 </p>
-                                <p className="text-gray-200 text-sm">
+                                <p
+                                  className="text-sm"
+                                  style={{
+                                    color: "#3B3A36",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   {philosopher.influence}
                                 </p>
                               </div>
 
-                              <div className="bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 border-l-3 border-violet-400 p-2 rounded-r-lg">
-                                <p className="text-gray-300 italic text-xs">
+                              <div
+                                className="border-l-3 p-2 rounded-r-lg"
+                                style={{
+                                  backgroundColor: "#F4EFE6",
+                                  borderLeftColor: "#C78B4E",
+                                }}
+                              >
+                                <p
+                                  className="italic text-xs"
+                                  style={{
+                                    color: "#3B3A36",
+                                    fontFamily:
+                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  }}
+                                >
                                   "{philosopher.quote}"
                                 </p>
                               </div>
@@ -573,21 +816,36 @@ export default function TimelinePage() {
           </div>
         </section>
 
-        {/* Interactive 3D Section */}
-        <section className="py-16 px-6">
+        {/* Interactive Timeline Section */}
+        {/* <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
               className="text-center mb-16"
             >
-              <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
-                Khám phá 3D Timeline
+              <h2
+                className="text-5xl font-bold mb-6"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
+                Khám phá Timeline Tương tác
               </h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              <p
+                className="text-xl max-w-4xl mx-auto leading-relaxed"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Trải nghiệm timeline tương tác với các triết gia trong không
-                gian 3D
+                gian đầy mê hoặc
               </p>
             </motion.div>
 
@@ -595,20 +853,42 @@ export default function TimelinePage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.05] hover:border-white/[0.15] transition-all duration-300 text-center"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 shadow-sm hover:shadow-md transition-all duration-500 text-center"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-white" />
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm"
+                  style={{ backgroundColor: "#C78B4E" }}
+                >
+                  <Clock className="w-6 h-6" style={{ color: "#F4EFE6" }} />
                 </div>
-                <h3 className="text-2xl font-bold text-white">
-                  Timeline 3D Tương tác
+                <h3
+                  className="text-2xl font-bold"
+                  style={{
+                    color: "#3B3A36",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  Timeline Tương tác
                 </h3>
               </div>
 
-              <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+              <p
+                className="text-lg mb-8 max-w-2xl mx-auto"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Khám phá sự tiến hóa của tư tưởng về giới qua các thời đại trong
-                không gian 3D
+                không gian đầy mê hoặc
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -616,9 +896,13 @@ export default function TimelinePage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
+                  transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.04] hover:border-white/[0.15] transition-all duration-300"
+                  className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-500"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                  }}
                 >
                   <motion.div
                     animate={{ rotate: [0, 360] }}
@@ -627,12 +911,34 @@ export default function TimelinePage() {
                       repeat: Infinity,
                       ease: "linear",
                     }}
-                    className="w-12 h-12 bg-gradient-to-r from-purple-500 to-violet-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm"
+                    style={{ backgroundColor: "#C78B4E" }}
                   >
-                    <span className="text-white font-bold text-lg">1</span>
+                    <span
+                      className="font-bold text-lg"
+                      style={{ color: "#F4EFE6" }}
+                    >
+                      1
+                    </span>
                   </motion.div>
-                  <h4 className="text-white font-bold mb-2">Kéo để xoay</h4>
-                  <p className="text-gray-400 text-sm">
+                  <h4
+                    className="font-bold mb-2"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    Kéo để xoay
+                  </h4>
+                  <p
+                    className="text-sm"
+                    style={{
+                      color: "#7A6A53",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     Điều khiển góc nhìn 360°
                   </p>
                 </motion.div>
@@ -641,9 +947,13 @@ export default function TimelinePage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
+                  transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.04] hover:border-white/[0.15] transition-all duration-300"
+                  className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-500"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                  }}
                 >
                   <motion.div
                     animate={{ scale: [1, 1.1, 1] }}
@@ -652,12 +962,34 @@ export default function TimelinePage() {
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm"
+                    style={{ backgroundColor: "#7A6A53" }}
                   >
-                    <span className="text-white font-bold text-lg">2</span>
+                    <span
+                      className="font-bold text-lg"
+                      style={{ color: "#F4EFE6" }}
+                    >
+                      2
+                    </span>
                   </motion.div>
-                  <h4 className="text-white font-bold mb-2">Hover để xem</h4>
-                  <p className="text-gray-400 text-sm">
+                  <h4
+                    className="font-bold mb-2"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    Hover để xem
+                  </h4>
+                  <p
+                    className="text-sm"
+                    style={{
+                      color: "#7A6A53",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     Thông tin chi tiết triết gia
                   </p>
                 </motion.div>
@@ -666,44 +998,76 @@ export default function TimelinePage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.04] hover:border-white/[0.15] transition-all duration-300"
+                  className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-500"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                  }}
                 >
                   <motion.div
                     animate={{
                       boxShadow: [
-                        "0 0 0 0 rgba(236, 72, 153, 0.4)",
-                        "0 0 0 10px rgba(236, 72, 153, 0)",
-                        "0 0 0 0 rgba(236, 72, 153, 0)",
+                        "0 0 0 0 rgba(199, 139, 78, 0.4)",
+                        "0 0 0 10px rgba(199, 139, 78, 0)",
+                        "0 0 0 0 rgba(199, 139, 78, 0)",
                       ],
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm"
+                    style={{ backgroundColor: "#C78B4E" }}
                   >
-                    <span className="text-white font-bold text-lg">3</span>
+                    <span
+                      className="font-bold text-lg"
+                      style={{ color: "#F4EFE6" }}
+                    >
+                      3
+                    </span>
                   </motion.div>
-                  <h4 className="text-white font-bold mb-2">
+                  <h4
+                    className="font-bold mb-2"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     Click để khám phá
                   </h4>
-                  <p className="text-gray-400 text-sm">
+                  <p
+                    className="text-sm"
+                    style={{
+                      color: "#7A6A53",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     Điều hướng đến trang chi tiết
                   </p>
                 </motion.div>
               </div>
 
-              <Link href="/timeline-3d">
+              <Link href="#carousel">
                 <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-violet-500/30 hover:shadow-xl hover:shadow-violet-500/40 transition-all duration-300 text-lg"
+                  whileHover={{ scale: 1.01, y: -2 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="font-bold py-4 px-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-500 text-lg"
+                  style={{
+                    backgroundColor: "#C78B4E",
+                    color: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
-                  Khám phá Timeline 3D
+                  Khám phá Timeline Tương tác
                 </motion.button>
               </Link>
             </motion.div>
           </div>
-        </section>
+        </section> */}
 
         {/* Call to Action */}
         <section className="py-20 px-6">
@@ -714,10 +1078,24 @@ export default function TimelinePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
+              <h2
+                className="text-5xl font-bold mb-6"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Khám phá sâu hơn
               </h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              <p
+                className="text-xl max-w-4xl mx-auto leading-relaxed"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Click vào các triết gia để tìm hiểu chi tiết về quan điểm của họ
               </p>
             </motion.div>
@@ -727,33 +1105,47 @@ export default function TimelinePage() {
                 initial={{ opacity: 0, x: -50, scale: 0.9 }}
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
                 viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-8 hover:bg-white/[0.05] hover:border-white/[0.15] transition-all duration-300 text-center relative overflow-hidden"
+                className="rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-500 text-center relative overflow-hidden"
+                style={{
+                  backgroundColor: "#F4EFE6",
+                  border: "1px solid #7A6A53",
+                }}
               >
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                  className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm"
+                  style={{ backgroundColor: "#C78B4E" }}
                 >
                   <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
+                    animate={{ rotate: [0, 15, -15, 0] }}
                     transition={{
-                      duration: 2,
+                      duration: 3,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
                   >
-                    <BookOpen className="w-8 h-8 text-white" />
+                    <BookOpen
+                      className="w-8 h-8"
+                      style={{ color: "#F4EFE6" }}
+                    />
                   </motion.div>
                 </motion.div>
                 <motion.h3
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="text-2xl font-bold text-white mb-4"
+                  transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+                  className="text-2xl font-bold mb-4"
+                  style={{
+                    color: "#3B3A36",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
                   Comic Strip Triết học
                 </motion.h3>
@@ -761,8 +1153,13 @@ export default function TimelinePage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                  className="text-gray-300 mb-6"
+                  transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+                  className="mb-6"
+                  style={{
+                    color: "#3B3A36",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
                   Những cuộc đối thoại thú vị giữa các triết gia về chủ đề giới
                   tính
@@ -772,14 +1169,20 @@ export default function TimelinePage() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.8 }}
+                    transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
                     whileHover={{
-                      scale: 1.05,
+                      scale: 1.01,
                       y: -2,
-                      boxShadow: "0 20px 40px rgba(251, 191, 36, 0.4)",
                     }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold py-3 px-6 rounded-full shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:shadow-yellow-500/40 transition-all duration-300"
+                    whileTap={{ scale: 0.99 }}
+                    className="font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-500"
+                    style={{
+                      backgroundColor: "#C78B4E",
+                      color: "#F4EFE6",
+                      border: "1px solid #7A6A53",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
                   >
                     Đọc Comic Strip
                   </motion.button>
@@ -790,33 +1193,44 @@ export default function TimelinePage() {
                 initial={{ opacity: 0, x: 50, scale: 0.9 }}
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
                 viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-8 hover:bg-white/[0.05] hover:border-white/[0.15] transition-all duration-300 text-center relative overflow-hidden"
+                className="rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-500 text-center relative overflow-hidden"
+                style={{
+                  backgroundColor: "#F4EFE6",
+                  border: "1px solid #7A6A53",
+                }}
               >
                 <motion.div
                   initial={{ scale: 0, rotate: 180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-                  className="w-16 h-16 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm"
+                  style={{ backgroundColor: "#7A6A53" }}
                 >
                   <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
+                    animate={{ scale: [1, 1.2, 1] }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
                   >
-                    <Users className="w-8 h-8 text-white" />
+                    <Users className="w-8 h-8" style={{ color: "#F4EFE6" }} />
                   </motion.div>
                 </motion.div>
                 <motion.h3
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="text-2xl font-bold text-white mb-4"
+                  transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+                  className="text-2xl font-bold mb-4"
+                  style={{
+                    color: "#3B3A36",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
                   Thảo luận Cộng đồng
                 </motion.h3>
@@ -824,8 +1238,13 @@ export default function TimelinePage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                  className="text-gray-300 mb-6"
+                  transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+                  className="mb-6"
+                  style={{
+                    color: "#3B3A36",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
                   Tham gia khảo sát và chia sẻ quan điểm của bạn về các vấn đề
                   triết học
@@ -835,14 +1254,20 @@ export default function TimelinePage() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.8 }}
+                    transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
                     whileHover={{
-                      scale: 1.05,
+                      scale: 1.01,
                       y: -2,
-                      boxShadow: "0 20px 40px rgba(139, 92, 246, 0.4)",
                     }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold py-3 px-6 rounded-full shadow-lg shadow-violet-500/30 hover:shadow-xl hover:shadow-violet-500/40 transition-all duration-300"
+                    whileTap={{ scale: 0.99 }}
+                    className="font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-500"
+                    style={{
+                      backgroundColor: "#7A6A53",
+                      color: "#F4EFE6",
+                      border: "1px solid #7A6A53",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
                   >
                     Tham gia Thảo luận
                   </motion.button>
