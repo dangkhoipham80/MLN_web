@@ -313,7 +313,7 @@ export default function PhilosopherCarousel({
                             style={{
                               color: "#3B3A36",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                               textShadow: "0 2px 4px rgba(59, 58, 54, 0.1)",
                             }}
                             animate={{
@@ -348,7 +348,7 @@ export default function PhilosopherCarousel({
                               style={{
                                 color: "#F4EFE6",
                                 fontFamily:
-                                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                 textShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
                               }}
                             >
@@ -362,7 +362,7 @@ export default function PhilosopherCarousel({
                             style={{
                               color: "#3B3A36",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                             animate={{
                               translateZ: isActive ? 4 : 0,
@@ -398,7 +398,7 @@ export default function PhilosopherCarousel({
                               style={{
                                 color: "#3B3A36",
                                 fontFamily:
-                                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                 textShadow: "0 1px 2px rgba(59, 58, 54, 0.05)",
                               }}
                             >
@@ -504,7 +504,7 @@ export default function PhilosopherCarousel({
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
             }}
           >
             Swipe • Click • Arrow Keys

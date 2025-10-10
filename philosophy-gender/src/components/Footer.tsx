@@ -27,7 +27,7 @@ export default function Footer() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Triết học & Giới tính
@@ -37,7 +37,7 @@ export default function Footer() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Dự án khám phá sự tiến hóa của tư tưởng về giới tính trong triết
@@ -82,7 +82,7 @@ export default function Footer() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Khám phá
@@ -133,7 +133,7 @@ export default function Footer() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Liên hệ
@@ -203,7 +203,7 @@ export default function Footer() {
               <span
                 style={{
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 © 2025 Triết học & Giới tính. Dự án PBL Đại học FPT.
@@ -231,7 +231,7 @@ export default function Footer() {
                       "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
                   }}
                 >
-                  AI-Assisted Development
+                  Group 10
                 </span>
               </div>
               <div

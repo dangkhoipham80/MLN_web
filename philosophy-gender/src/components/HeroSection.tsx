@@ -145,6 +145,7 @@ export default function HeroSection() {
                   desc: "Sự tiến hóa của tư tưởng về giới qua các thời đại",
                   gradient: "from-violet-500 to-purple-600",
                   link: "/timeline",
+                  image: "/assets/plato.jpg",
                 },
                 {
                   icon: BookOpen,
@@ -152,6 +153,7 @@ export default function HeroSection() {
                   desc: "Đối thoại hài hước và triết lý giữa các triết gia",
                   gradient: "from-fuchsia-500 to-pink-600",
                   link: "/comic",
+                  image: "/assets/aristotle.jpg",
                 },
                 {
                   icon: MessageCircle,
@@ -159,6 +161,7 @@ export default function HeroSection() {
                   desc: "Chia sẻ quan điểm và tham gia tranh luận",
                   gradient: "from-violet-600 to-fuchsia-600",
                   link: "/discussion",
+                  image: "/assets/wollstonecraft.jpg",
                 },
                 {
                   icon: Users,
@@ -166,6 +169,7 @@ export default function HeroSection() {
                   desc: "Tìm hiểu về dự án, nhóm thực hiện và minh bạch AI",
                   gradient: "from-purple-500 to-violet-500",
                   link: "/team",
+                  image: "/assets/mill.jpg",
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -178,10 +182,24 @@ export default function HeroSection() {
                 >
                   <Link href={feature.link}>
                     <div className="text-center">
-                      <div
-                        className={`inline-flex w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                      >
-                        <feature.icon className="w-8 h-8 text-white" />
+                      <div className="relative mb-4">
+                        <div
+                          className={`inline-flex w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                        >
+                          <feature.icon className="w-8 h-8 text-white" />
+                        </div>
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileHover={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-lg"
+                        >
+                          <img
+                            src={feature.image}
+                            alt={`${feature.title} philosopher`}
+                            className="w-full h-full object-cover"
+                          />
+                        </motion.div>
                       </div>
                       <h3
                         className="text-lg font-bold text-white mb-2 group-hover:text-violet-300 transition-colors duration-300"

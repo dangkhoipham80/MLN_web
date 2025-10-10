@@ -20,7 +20,7 @@ export default function HomePage() {
       style={{
         backgroundColor: "#F4EFE6",
         fontFamily:
-          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
@@ -68,7 +68,7 @@ export default function HomePage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               fontWeight: 400,
             }}
           >
@@ -83,7 +83,7 @@ export default function HomePage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
             }}
           >
             Hành trình tư tưởng từ cổ đại đến hiện đại
@@ -110,7 +110,7 @@ export default function HomePage() {
                     color: "#F4EFE6",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   <span>Khám phá Timeline</span>
@@ -129,7 +129,7 @@ export default function HomePage() {
                     color: "#3B3A36",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Đọc Comic Strip
@@ -206,7 +206,7 @@ export default function HomePage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         {feature.title}
@@ -216,7 +216,7 @@ export default function HomePage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         {feature.desc}
@@ -248,7 +248,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Giới thiệu
@@ -258,7 +258,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Xuyên suốt lịch sử triết học, "giới tính" không chỉ là vấn đề
@@ -289,7 +289,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Triết học luôn đặt câu hỏi: "Con người là gì?"
@@ -299,7 +299,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Nhưng trong hàng nghìn năm, câu trả lời ấy chủ yếu đến từ nam
@@ -318,7 +318,7 @@ export default function HomePage() {
                       color: "#F4EFE6",
                       border: "1px solid #7A6A53",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Khám phá Timeline
@@ -335,7 +335,7 @@ export default function HomePage() {
                       color: "#3B3A36",
                       border: "1px solid #7A6A53",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Đọc Comic Strip
@@ -361,7 +361,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Dòng thời gian Triết học về Giới tính
@@ -371,7 +371,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Khám phá sự tiến hóa của tư tưởng về giới tính qua các thời đại,
@@ -393,8 +393,7 @@ export default function HomePage() {
                     era: "Cổ đại (427-347 TCN)",
                     philosopher: "Plato",
                     idea: "Linh hồn phi giới, bình đẳng lý trí",
-                    image:
-                      "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=300&h=300&fit=crop&crop=face",
+                    image: "/assets/plato.jpg",
                     side: "left",
                     quote:
                       "Linh hồn con người là bất biến. Giới tính chỉ là vỏ bọc tạm thời.",
@@ -403,8 +402,7 @@ export default function HomePage() {
                     era: "Trung cổ (384-322 TCN)",
                     philosopher: "Aristotle",
                     idea: "Phân biệt giới theo tự nhiên",
-                    image:
-                      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+                    image: "/assets/aristotle.jpg",
                     side: "right",
                     quote:
                       "Nam là hình thức, nữ là vật chất. Đó là trật tự tự nhiên.",
@@ -413,8 +411,7 @@ export default function HomePage() {
                     era: "Hiện đại (1908-1986)",
                     philosopher: "Simone de Beauvoir",
                     idea: "Giới tính là sản phẩm xã hội",
-                    image:
-                      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
+                    image: "/assets/beauvoir.jpg",
                     side: "left",
                     quote:
                       "Người ta không sinh ra là phụ nữ, mà trở thành phụ nữ.",
@@ -423,8 +420,7 @@ export default function HomePage() {
                     era: "Đương đại (1956-nay)",
                     philosopher: "Judith Butler",
                     idea: "Giới như màn trình diễn",
-                    image:
-                      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
+                    image: "/assets/butler.jpg",
                     side: "right",
                     quote: "Giới tính là màn trình diễn, không phải bản chất.",
                   },
@@ -467,7 +463,7 @@ export default function HomePage() {
                             style={{
                               color: "#F4EFE6",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {item.era}
@@ -478,7 +474,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           {item.philosopher}
@@ -488,7 +484,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           {item.idea}
@@ -499,7 +495,7 @@ export default function HomePage() {
                             color: "#3B3A36",
                             borderLeft: "4px solid #C78B4E",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           "{item.quote}"
@@ -548,7 +544,7 @@ export default function HomePage() {
                             style={{
                               color: "#F4EFE6",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {index + 1}
@@ -573,7 +569,7 @@ export default function HomePage() {
                     color: "#F4EFE6",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Khám phá Timeline đầy đủ
@@ -598,7 +594,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Comic Strip Triết học
@@ -608,7 +604,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Những cuộc đối thoại thú vị giữa các triết gia về chủ đề giới
@@ -631,7 +627,7 @@ export default function HomePage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Cuộc đối thoại Cổ đại
@@ -640,7 +636,7 @@ export default function HomePage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Plato vs Aristotle
@@ -663,7 +659,7 @@ export default function HomePage() {
                         style={{ border: "2px solid #7A6A53" }}
                       >
                         <img
-                          src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=100&h=100&fit=crop&crop=face"
+                          src="/assets/plato.jpg"
                           alt="Plato"
                           className="w-full h-full object-cover"
                         />
@@ -674,7 +670,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           Plato
@@ -684,7 +680,7 @@ export default function HomePage() {
                           style={{
                             color: "#C78B4E",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           427-347 TCN
@@ -703,7 +699,7 @@ export default function HomePage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         "Linh hồn con người là bất biến. Giới tính chỉ là vỏ bọc
@@ -727,7 +723,7 @@ export default function HomePage() {
                         style={{ border: "2px solid #7A6A53" }}
                       >
                         <img
-                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                          src="/assets/aristotle.jpg"
                           alt="Aristotle"
                           className="w-full h-full object-cover"
                         />
@@ -738,7 +734,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           Aristotle
@@ -748,7 +744,7 @@ export default function HomePage() {
                           style={{
                             color: "#C78B4E",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           384-322 TCN
@@ -767,7 +763,7 @@ export default function HomePage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         "Nhưng anh có thể phủ nhận sự khác biệt tự nhiên giữa
@@ -791,7 +787,7 @@ export default function HomePage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Cuộc đối thoại Hiện đại
@@ -800,7 +796,7 @@ export default function HomePage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Beauvoir vs Butler
@@ -823,7 +819,7 @@ export default function HomePage() {
                         style={{ border: "2px solid #7A6A53" }}
                       >
                         <img
-                          src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
+                          src="/assets/beauvoir.jpg"
                           alt="Beauvoir"
                           className="w-full h-full object-cover"
                         />
@@ -834,7 +830,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           Simone de Beauvoir
@@ -844,7 +840,7 @@ export default function HomePage() {
                           style={{
                             color: "#C78B4E",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           1908-1986
@@ -863,7 +859,7 @@ export default function HomePage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         "Người ta không sinh ra là phụ nữ, mà trở thành phụ nữ!"
@@ -886,7 +882,7 @@ export default function HomePage() {
                         style={{ border: "2px solid #7A6A53" }}
                       >
                         <img
-                          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+                          src="/assets/butler.jpg"
                           alt="Butler"
                           className="w-full h-full object-cover"
                         />
@@ -897,7 +893,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           Judith Butler
@@ -907,7 +903,7 @@ export default function HomePage() {
                           style={{
                             color: "#C78B4E",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           1956-nay
@@ -926,7 +922,7 @@ export default function HomePage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         "Giới tính là màn trình diễn, không phải bản chất!"
@@ -949,7 +945,7 @@ export default function HomePage() {
                     color: "#F4EFE6",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Đọc Comic Strip đầy đủ
@@ -974,7 +970,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Thảo luận Cộng đồng
@@ -984,7 +980,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Tham gia khảo sát và chia sẻ quan điểm của bạn về các vấn đề
@@ -1021,7 +1017,7 @@ export default function HomePage() {
                       style={{
                         color: "#3B3A36",
                         fontFamily:
-                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                       }}
                     >
                       Khảo sát hiện tại
@@ -1030,7 +1026,7 @@ export default function HomePage() {
                       style={{
                         color: "#3B3A36",
                         fontFamily:
-                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                       }}
                     >
                       "Giới tính là gì theo bạn?"
@@ -1071,7 +1067,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           {item.label}
@@ -1081,7 +1077,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           {item.percentage}%
@@ -1134,7 +1130,7 @@ export default function HomePage() {
                       style={{
                         color: "#3B3A36",
                         fontFamily:
-                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                       }}
                     >
                       Bình luận gần đây
@@ -1143,7 +1139,7 @@ export default function HomePage() {
                       style={{
                         color: "#3B3A36",
                         fontFamily:
-                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                       }}
                     >
                       Cộng đồng đang thảo luận
@@ -1200,7 +1196,7 @@ export default function HomePage() {
                           style={{
                             color: "#F4EFE6",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           {comment.avatar}
@@ -1213,7 +1209,7 @@ export default function HomePage() {
                             style={{
                               color: "#3B3A36",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {comment.name}
@@ -1223,7 +1219,7 @@ export default function HomePage() {
                             style={{
                               color: "#7A6A53",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {comment.time}
@@ -1234,7 +1230,7 @@ export default function HomePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           {comment.comment}
@@ -1258,7 +1254,7 @@ export default function HomePage() {
                     color: "#F4EFE6",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Tham gia Thảo luận
@@ -1291,7 +1287,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Bắt đầu hành trình khám phá
@@ -1305,7 +1301,7 @@ export default function HomePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Sử dụng thanh điều hướng ở trên để khám phá các phần khác nhau
@@ -1329,7 +1325,7 @@ export default function HomePage() {
                       color: "#F4EFE6",
                       border: "1px solid #7A6A53",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Timeline Tư tưởng
@@ -1346,7 +1342,7 @@ export default function HomePage() {
                       color: "#3B3A36",
                       border: "1px solid #7A6A53",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Tham gia Thảo luận

@@ -37,7 +37,7 @@ export default function TeamPage() {
       style={{
         backgroundColor: "#F4EFE6",
         fontFamily:
-          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
@@ -87,7 +87,7 @@ export default function TeamPage() {
               style={{
                 color: "#F4EFE6",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               Về dự án
@@ -102,7 +102,7 @@ export default function TeamPage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               fontWeight: 400,
             }}
           >
@@ -117,7 +117,7 @@ export default function TeamPage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
             }}
           >
             Dự án Triết học & Giới tính - Từ cổ đại đến hiện đại
@@ -143,7 +143,7 @@ export default function TeamPage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Thông tin Dự án
@@ -155,7 +155,7 @@ export default function TeamPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <div
@@ -169,7 +169,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Triết học & Giới tính – Từ cổ đại đến hiện đại
@@ -180,7 +180,7 @@ export default function TeamPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <div
@@ -194,7 +194,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Khám phá sự tiến hóa của tư tưởng về giới tính trong triết
@@ -208,7 +208,7 @@ export default function TeamPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <div
@@ -222,7 +222,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <li className="flex items-center gap-2">
@@ -260,7 +260,7 @@ export default function TeamPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <div
@@ -274,7 +274,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <li className="flex items-center gap-2">
@@ -324,7 +324,7 @@ export default function TeamPage() {
               style={{
                 color: "#3B3A36",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               Nhóm thực hiện
@@ -363,7 +363,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     {member.name}
@@ -373,7 +373,7 @@ export default function TeamPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     {member.role}
@@ -383,7 +383,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     {member.description}
@@ -413,7 +413,7 @@ export default function TeamPage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Minh bạch AI
@@ -430,7 +430,7 @@ export default function TeamPage() {
                   style={{
                     color: "#3B3A36",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   <strong className="text-lg" style={{ color: "#C78B4E" }}>
@@ -442,7 +442,7 @@ export default function TeamPage() {
                   style={{
                     color: "#3B3A36",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   <li className="flex items-start gap-3">
@@ -475,7 +475,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <strong style={{ color: "#C78B4E" }}>Lưu ý:</strong> Mọi
@@ -507,7 +507,7 @@ export default function TeamPage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Tài liệu tham khảo
@@ -519,7 +519,7 @@ export default function TeamPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <BookOpen className="w-5 h-5" />
@@ -530,7 +530,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     {[
@@ -559,7 +559,7 @@ export default function TeamPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <Users className="w-5 h-5" />
@@ -570,7 +570,7 @@ export default function TeamPage() {
                     style={{
                       color: "#3B3A36",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     {[
@@ -612,7 +612,7 @@ export default function TeamPage() {
               style={{
                 color: "#3B3A36",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               <span>Liên hệ</span>
@@ -626,7 +626,7 @@ export default function TeamPage() {
               style={{
                 color: "#3B3A36",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               Có câu hỏi về dự án? Hãy liên hệ với chúng tôi!
@@ -649,7 +649,7 @@ export default function TeamPage() {
                   color: "#F4EFE6",
                   border: "1px solid #7A6A53",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 <Mail className="w-5 h-5" />
@@ -667,7 +667,7 @@ export default function TeamPage() {
                     color: "#3B3A36",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Về Trang chủ

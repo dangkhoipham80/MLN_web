@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   MessageCircle,
@@ -16,62 +16,172 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
+// Types
+interface Comment {
+  id: number;
+  author: string;
+  content: string;
+  likes: number;
+  dislikes: number;
+  timestamp: string;
+}
+
+interface SurveyData {
+  [key: string]: number;
+}
+
+// Utility functions for localStorage
+const STORAGE_KEYS = {
+  SURVEY_DATA: "philosophy-gender-survey",
+  COMMENTS: "philosophy-gender-comments",
+  USER_VOTES: "philosophy-gender-user-votes",
+};
+
+const getStoredData = (key: string, defaultValue: any): any => {
+  if (typeof window === "undefined") return defaultValue;
+  try {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : defaultValue;
+  } catch {
+    return defaultValue;
+  }
+};
+
+const setStoredData = (key: string, data: any): void => {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (error) {
+    console.error("Error saving to localStorage:", error);
+  }
+};
+
 export default function DiscussionPage() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [hasVoted, setHasVoted] = useState(false);
-  const [comments, setComments] = useState([
-    {
-      id: 1,
-      author: "Nguyễn Văn A",
-      content:
-        "Tôi đồng ý với Beauvoir rằng giới tính là sản phẩm của xã hội. Chúng ta được dạy cách 'làm đàn ông' hoặc 'làm phụ nữ' từ nhỏ.",
-      likes: 12,
-      dislikes: 2,
-      timestamp: "2 giờ trước",
-    },
-    {
-      id: 2,
-      author: "Trần Thị B",
-      content:
-        "Theo tôi, giới tính là sự kết hợp của cả sinh học và xã hội. Không thể phủ nhận hoàn toàn yếu tố tự nhiên.",
-      likes: 8,
-      dislikes: 1,
-      timestamp: "4 giờ trước",
-    },
-    {
-      id: 3,
-      author: "Lê Văn C",
-      content:
-        "Butler đã mở ra một cách nhìn mới về giới tính. Việc coi giới như 'màn trình diễn' giúp chúng ta hiểu được tính linh hoạt của bản sắc.",
-      likes: 15,
-      dislikes: 0,
-      timestamp: "6 giờ trước",
-    },
-  ]);
-
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [surveyData, setSurveyData] = useState<SurveyData>({});
   const [newComment, setNewComment] = useState("");
+
+  // Load data from localStorage on component mount
+  useEffect(() => {
+    const storedComments = getStoredData(STORAGE_KEYS.COMMENTS, [
+      {
+        id: 1,
+        author: "Nguyễn Văn A",
+        content:
+          "Tôi đồng ý với Beauvoir rằng giới tính là sản phẩm của xã hội. Chúng ta được dạy cách 'làm đàn ông' hoặc 'làm phụ nữ' từ nhỏ.",
+        likes: 12,
+        dislikes: 2,
+        timestamp: "2 giờ trước",
+      },
+      {
+        id: 2,
+        author: "Trần Thị B",
+        content:
+          "Theo tôi, giới tính là sự kết hợp của cả sinh học và xã hội. Không thể phủ nhận hoàn toàn yếu tố tự nhiên.",
+        likes: 8,
+        dislikes: 1,
+        timestamp: "4 giờ trước",
+      },
+      {
+        id: 3,
+        author: "Lê Văn C",
+        content:
+          "Butler đã mở ra một cách nhìn mới về giới tính. Việc coi giới như 'màn trình diễn' giúp chúng ta hiểu được tính linh hoạt của bản sắc.",
+        likes: 15,
+        dislikes: 0,
+        timestamp: "6 giờ trước",
+      },
+    ]);
+
+    const storedSurveyData = getStoredData(STORAGE_KEYS.SURVEY_DATA, {
+      "1": 15,
+      "2": 35,
+      "3": 40,
+      "4": 10,
+    });
+
+    const userVote = getStoredData(STORAGE_KEYS.USER_VOTES, null);
+
+    setComments(storedComments);
+    setSurveyData(storedSurveyData);
+    setSelectedAnswer(userVote);
+    setHasVoted(!!userVote);
+  }, []);
 
   const handleVote = (answer: string) => {
     if (!hasVoted) {
       setSelectedAnswer(answer);
       setHasVoted(true);
+
+      // Update survey data
+      const newSurveyData = { ...surveyData };
+      newSurveyData[answer] = (newSurveyData[answer] || 0) + 1;
+
+      // Save to localStorage
+      setStoredData(STORAGE_KEYS.SURVEY_DATA, newSurveyData);
+      setStoredData(STORAGE_KEYS.USER_VOTES, answer);
+
+      setSurveyData(newSurveyData);
     }
   };
 
   const handleSubmitComment = (e: React.FormEvent) => {
     e.preventDefault();
     if (newComment.trim()) {
-      const comment = {
-        id: comments.length + 1,
+      const comment: Comment = {
+        id: Date.now(), // Use timestamp as unique ID
         author: "Bạn",
         content: newComment,
         likes: 0,
         dislikes: 0,
         timestamp: "Vừa xong",
       };
-      setComments([comment, ...comments]);
+
+      const updatedComments = [comment, ...comments];
+      setComments(updatedComments);
+      setStoredData(STORAGE_KEYS.COMMENTS, updatedComments);
       setNewComment("");
     }
+  };
+
+  // Calculate survey percentages
+  const calculateSurveyPercentages = () => {
+    const totalVotes = Object.values(surveyData).reduce(
+      (sum, count) => sum + count,
+      0
+    );
+    if (totalVotes === 0) return {};
+
+    const percentages: { [key: string]: number } = {};
+    Object.keys(surveyData).forEach((key) => {
+      percentages[key] = Math.round((surveyData[key] / totalVotes) * 100);
+    });
+
+    return percentages;
+  };
+
+  const surveyPercentages = calculateSurveyPercentages();
+
+  const handleLikeComment = (commentId: number) => {
+    const updatedComments = comments.map((comment) =>
+      comment.id === commentId
+        ? { ...comment, likes: comment.likes + 1 }
+        : comment
+    );
+    setComments(updatedComments);
+    setStoredData(STORAGE_KEYS.COMMENTS, updatedComments);
+  };
+
+  const handleDislikeComment = (commentId: number) => {
+    const updatedComments = comments.map((comment) =>
+      comment.id === commentId
+        ? { ...comment, dislikes: comment.dislikes + 1 }
+        : comment
+    );
+    setComments(updatedComments);
+    setStoredData(STORAGE_KEYS.COMMENTS, updatedComments);
   };
 
   return (
@@ -80,7 +190,7 @@ export default function DiscussionPage() {
       style={{
         backgroundColor: "#F4EFE6",
         fontFamily:
-          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
@@ -108,7 +218,7 @@ export default function DiscussionPage() {
               style={{
                 color: "#7A6A53",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               <ArrowLeft className="w-5 h-5" />
@@ -135,7 +245,7 @@ export default function DiscussionPage() {
               style={{
                 color: "#F4EFE6",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               Thảo luận & Khảo sát
@@ -150,7 +260,7 @@ export default function DiscussionPage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               fontWeight: 400,
             }}
           >
@@ -165,7 +275,7 @@ export default function DiscussionPage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
             }}
           >
             Triết học không chỉ để học, mà để tranh luận. Hãy chia sẻ cách bạn
@@ -192,7 +302,7 @@ export default function DiscussionPage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Khảo sát: Giới tính là gì theo bạn?
@@ -206,7 +316,7 @@ export default function DiscussionPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <div
@@ -276,7 +386,7 @@ export default function DiscussionPage() {
                           style={{
                             ...getButtonStyle(),
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           <div className="flex items-center space-x-4">
@@ -306,7 +416,7 @@ export default function DiscussionPage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         ✅ Cảm ơn bạn đã tham gia khảo sát!
@@ -322,33 +432,45 @@ export default function DiscussionPage() {
                     style={{
                       color: "#C78B4E",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     <BarChart3 className="w-5 h-5" />
                     Kết quả khảo sát hiện tại
+                    <span className="text-sm font-normal opacity-70">
+                      (
+                      {Object.values(surveyData).reduce(
+                        (sum, count) => sum + count,
+                        0
+                      )}{" "}
+                      phiếu bầu)
+                    </span>
                   </h3>
 
                   <div className="space-y-6">
                     {[
                       {
+                        id: "1",
                         label: "Bản chất sinh học",
-                        percentage: 15,
+                        percentage: surveyPercentages["1"] || 0,
                         color: "bg-red-500",
                       },
                       {
+                        id: "2",
                         label: "Cấu trúc xã hội",
-                        percentage: 35,
+                        percentage: surveyPercentages["2"] || 0,
                         color: "bg-blue-500",
                       },
                       {
+                        id: "3",
                         label: "Sự kết hợp của cả hai",
-                        percentage: 40,
+                        percentage: surveyPercentages["3"] || 0,
                         color: "bg-yellow-500",
                       },
                       {
+                        id: "4",
                         label: 'Một dạng "trình diễn" cá nhân',
-                        percentage: 10,
+                        percentage: surveyPercentages["4"] || 0,
                         color: "bg-purple-500",
                       },
                     ].map((item, index) => (
@@ -369,7 +491,7 @@ export default function DiscussionPage() {
                             style={{
                               color: "#3B3A36",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {item.label}
@@ -379,7 +501,7 @@ export default function DiscussionPage() {
                             style={{
                               color: "#3B3A36",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {item.percentage}%
@@ -429,7 +551,7 @@ export default function DiscussionPage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Thảo luận cộng đồng
@@ -442,7 +564,7 @@ export default function DiscussionPage() {
                   style={{
                     color: "#C78B4E",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -461,7 +583,7 @@ export default function DiscussionPage() {
                         color: "#3B3A36",
                         border: "1px solid #7A6A53",
                         fontFamily:
-                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                       }}
                     />
                     <motion.button
@@ -475,7 +597,7 @@ export default function DiscussionPage() {
                         color: "#F4EFE6",
                         border: "1px solid #7A6A53",
                         fontFamily:
-                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                       }}
                     >
                       Gửi
@@ -491,7 +613,7 @@ export default function DiscussionPage() {
                   style={{
                     color: "#C78B4E",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   <Users className="w-5 h-5" />
@@ -524,7 +646,7 @@ export default function DiscussionPage() {
                             style={{
                               color: "#F4EFE6",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {comment.author.charAt(0)}
@@ -536,7 +658,7 @@ export default function DiscussionPage() {
                             style={{
                               color: "#3B3A36",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {comment.author}
@@ -546,7 +668,7 @@ export default function DiscussionPage() {
                             style={{
                               color: "#7A6A53",
                               fontFamily:
-                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                             }}
                           >
                             {comment.timestamp}
@@ -559,7 +681,7 @@ export default function DiscussionPage() {
                       style={{
                         color: "#3B3A36",
                         fontFamily:
-                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                       }}
                     >
                       {comment.content}
@@ -567,11 +689,13 @@ export default function DiscussionPage() {
                     <div className="flex space-x-6">
                       <motion.button
                         whileHover={{ scale: 1.05 }}
-                        className="flex items-center space-x-2 transition-colors duration-300"
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleLikeComment(comment.id)}
+                        className="flex items-center space-x-2 transition-colors duration-300 hover:text-green-600"
                         style={{
                           color: "#7A6A53",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         <ThumbsUp className="w-4 h-4" />
@@ -581,11 +705,13 @@ export default function DiscussionPage() {
                       </motion.button>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
-                        className="flex items-center space-x-2 transition-colors duration-300"
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleDislikeComment(comment.id)}
+                        className="flex items-center space-x-2 transition-colors duration-300 hover:text-red-600"
                         style={{
                           color: "#7A6A53",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         <ThumbsDown className="w-4 h-4" />
@@ -613,7 +739,7 @@ export default function DiscussionPage() {
               style={{
                 color: "#3B3A36",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               Khám phá thêm
@@ -627,7 +753,7 @@ export default function DiscussionPage() {
               style={{
                 color: "#3B3A36",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               Hãy xem lại Timeline Tư tưởng hoặc Comic Strip để tìm triết gia
@@ -651,7 +777,7 @@ export default function DiscussionPage() {
                     color: "#F4EFE6",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   <TrendingUp className="w-5 h-5" />
@@ -670,7 +796,7 @@ export default function DiscussionPage() {
                     color: "#3B3A36",
                     border: "1px solid #7A6A53",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Đọc Comic Strip

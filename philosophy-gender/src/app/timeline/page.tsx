@@ -167,7 +167,7 @@ export default function TimelinePage() {
       style={{
         backgroundColor: "#F4EFE6",
         fontFamily:
-          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
@@ -195,7 +195,7 @@ export default function TimelinePage() {
               style={{
                 color: "#7A6A53",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               <ArrowLeft className="w-5 h-5" />
@@ -227,7 +227,7 @@ export default function TimelinePage() {
               style={{
                 color: "#F4EFE6",
                 fontFamily:
-                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               }}
             >
               Timeline Tương tác
@@ -248,7 +248,7 @@ export default function TimelinePage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
               fontWeight: 400,
             }}
           >
@@ -263,7 +263,7 @@ export default function TimelinePage() {
             style={{
               color: "#3B3A36",
               fontFamily:
-                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
             }}
           >
             <motion.span
@@ -299,7 +299,7 @@ export default function TimelinePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Kéo để xoay
@@ -325,7 +325,7 @@ export default function TimelinePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Hover để xem
@@ -351,7 +351,7 @@ export default function TimelinePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Click để khám phá
@@ -399,7 +399,7 @@ export default function TimelinePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Dòng thời gian Triết học về Giới tính
@@ -440,7 +440,7 @@ export default function TimelinePage() {
                           style={{
                             color: "#3B3A36",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           {period.era}
@@ -449,7 +449,7 @@ export default function TimelinePage() {
                           style={{
                             color: "#7A6A53",
                             fontFamily:
-                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                           }}
                         >
                           Thời kỳ triết học
@@ -512,7 +512,7 @@ export default function TimelinePage() {
                                     style={{
                                       color: "#3B3A36",
                                       fontFamily:
-                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                     }}
                                   >
                                     {philosopher.name}
@@ -531,7 +531,7 @@ export default function TimelinePage() {
                                     style={{
                                       color: "#F4EFE6",
                                       fontFamily:
-                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                     }}
                                   >
                                     Triết gia
@@ -547,7 +547,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#C78B4E",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   Quan điểm:
@@ -557,7 +557,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#3B3A36",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   {philosopher.view}
@@ -570,7 +570,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#C78B4E",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   Ảnh hưởng:
@@ -580,7 +580,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#3B3A36",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   {philosopher.influence}
@@ -620,7 +620,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#3B3A36",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   "{philosopher.quote}"
@@ -668,7 +668,7 @@ export default function TimelinePage() {
                         style={{
                           color: "#3B3A36",
                           fontFamily:
-                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                         }}
                       >
                         {period.era}
@@ -711,7 +711,7 @@ export default function TimelinePage() {
                                     style={{
                                       color: "#3B3A36",
                                       fontFamily:
-                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                     }}
                                   >
                                     {philosopher.name}
@@ -730,7 +730,7 @@ export default function TimelinePage() {
                                     style={{
                                       color: "#F4EFE6",
                                       fontFamily:
-                                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                     }}
                                   >
                                     Triết gia
@@ -746,7 +746,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#C78B4E",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   Quan điểm:
@@ -756,7 +756,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#3B3A36",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   {philosopher.view}
@@ -769,7 +769,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#C78B4E",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   Ảnh hưởng:
@@ -779,7 +779,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#3B3A36",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   {philosopher.influence}
@@ -798,7 +798,7 @@ export default function TimelinePage() {
                                   style={{
                                     color: "#3B3A36",
                                     fontFamily:
-                                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                                   }}
                                 >
                                   "{philosopher.quote}"
@@ -830,8 +830,7 @@ export default function TimelinePage() {
                 className="text-5xl font-bold mb-6"
                 style={{
                   color: "#3B3A36",
-                  fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Khám phá Timeline Tương tác
@@ -840,8 +839,7 @@ export default function TimelinePage() {
                 className="text-xl max-w-4xl mx-auto leading-relaxed"
                 style={{
                   color: "#3B3A36",
-                  fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Trải nghiệm timeline tương tác với các triết gia trong không
@@ -871,8 +869,7 @@ export default function TimelinePage() {
                   className="text-2xl font-bold"
                   style={{
                     color: "#3B3A36",
-                    fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Timeline Tương tác
@@ -883,8 +880,7 @@ export default function TimelinePage() {
                 className="text-lg mb-8 max-w-2xl mx-auto"
                 style={{
                   color: "#3B3A36",
-                  fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Khám phá sự tiến hóa của tư tưởng về giới qua các thời đại trong
@@ -925,8 +921,7 @@ export default function TimelinePage() {
                     className="font-bold mb-2"
                     style={{
                       color: "#3B3A36",
-                      fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Kéo để xoay
@@ -935,8 +930,7 @@ export default function TimelinePage() {
                     className="text-sm"
                     style={{
                       color: "#7A6A53",
-                      fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Điều khiển góc nhìn 360°
@@ -976,8 +970,7 @@ export default function TimelinePage() {
                     className="font-bold mb-2"
                     style={{
                       color: "#3B3A36",
-                      fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Hover để xem
@@ -986,8 +979,7 @@ export default function TimelinePage() {
                     className="text-sm"
                     style={{
                       color: "#7A6A53",
-                      fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Thông tin chi tiết triết gia
@@ -1029,8 +1021,7 @@ export default function TimelinePage() {
                     className="font-bold mb-2"
                     style={{
                       color: "#3B3A36",
-                      fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Click để khám phá
@@ -1039,8 +1030,7 @@ export default function TimelinePage() {
                     className="text-sm"
                     style={{
                       color: "#7A6A53",
-                      fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Điều hướng đến trang chi tiết
@@ -1058,8 +1048,7 @@ export default function TimelinePage() {
                     backgroundColor: "#C78B4E",
                     color: "#F4EFE6",
                     border: "1px solid #7A6A53",
-                    fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Khám phá Timeline Tương tác
@@ -1083,7 +1072,7 @@ export default function TimelinePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Khám phá sâu hơn
@@ -1093,7 +1082,7 @@ export default function TimelinePage() {
                 style={{
                   color: "#3B3A36",
                   fontFamily:
-                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                 }}
               >
                 Click vào các triết gia để tìm hiểu chi tiết về quan điểm của họ
@@ -1144,7 +1133,7 @@ export default function TimelinePage() {
                   style={{
                     color: "#3B3A36",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Comic Strip Triết học
@@ -1158,7 +1147,7 @@ export default function TimelinePage() {
                   style={{
                     color: "#3B3A36",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Những cuộc đối thoại thú vị giữa các triết gia về chủ đề giới
@@ -1181,7 +1170,7 @@ export default function TimelinePage() {
                       color: "#F4EFE6",
                       border: "1px solid #7A6A53",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Đọc Comic Strip
@@ -1229,7 +1218,7 @@ export default function TimelinePage() {
                   style={{
                     color: "#3B3A36",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Thảo luận Cộng đồng
@@ -1243,7 +1232,7 @@ export default function TimelinePage() {
                   style={{
                     color: "#3B3A36",
                     fontFamily:
-                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                   }}
                 >
                   Tham gia khảo sát và chia sẻ quan điểm của bạn về các vấn đề
@@ -1266,7 +1255,7 @@ export default function TimelinePage() {
                       color: "#F4EFE6",
                       border: "1px solid #7A6A53",
                       fontFamily:
-                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        "var(--font-inter), 'Inter', 'Roboto', 'Segoe UI', 'Tahoma', 'Arial', sans-serif",
                     }}
                   >
                     Tham gia Thảo luận
