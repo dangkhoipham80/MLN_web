@@ -76,44 +76,23 @@ export default function DiscussionPage() {
 
   return (
     <div
-      className="min-h-screen bg-[#0a0a0f] overflow-hidden"
+      className="min-h-screen overflow-hidden"
       style={{
+        backgroundColor: "#F4EFE6",
         fontFamily:
-          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
       <Navigation />
 
-      {/* Animated Background - giống HeroSection */}
+      {/* Philosophical Study Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-fuchsia-950/30 to-[#0a0a0f]" />
-
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -left-48 w-96 h-96 bg-violet-600 rounded-full blur-[128px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-1/4 -right-48 w-96 h-96 bg-fuchsia-600 rounded-full blur-[128px]"
-        />
-
+        {/* Subtle parchment texture overlay */}
         <div
-          className="absolute inset-0 opacity-[0.015] mix-blend-overlay"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 10h20M10 0v20' stroke='%23C78B4E' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23paper)'/%3E%3C/svg%3E")`,
           }}
         />
       </div>
@@ -125,7 +104,12 @@ export default function DiscussionPage() {
           <Link href="/">
             <motion.button
               whileHover={{ x: -4 }}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-2 transition-colors duration-300"
+              style={{
+                color: "#7A6A53",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
               <ArrowLeft className="w-5 h-5" />
               <span>Về trang chủ</span>
@@ -138,10 +122,22 @@ export default function DiscussionPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 backdrop-blur-xl border border-white/10 mb-8"
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg mb-8 shadow-sm"
+            style={{
+              backgroundColor: "#C78B4E",
+              border: "1px solid #7A6A53",
+            }}
           >
-            <Sparkles className="w-4 h-4 text-violet-400" />
-            <span className="text-sm font-medium tracking-wide text-violet-200">
+            <Sparkles className="w-4 h-4" style={{ color: "#F4EFE6" }} />
+            <span
+              className="text-sm font-medium tracking-wide"
+              style={{
+                color: "#F4EFE6",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
+            >
               Thảo luận & Khảo sát
             </span>
           </motion.div>
@@ -149,23 +145,28 @@ export default function DiscussionPage() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
             className="text-6xl md:text-7xl font-bold mb-6"
             style={{
-              fontFamily: "'Instrument Serif', Georgia, serif",
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
               fontWeight: 400,
             }}
           >
-            <span className="block bg-gradient-to-br from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
-              Thảo luận Triết học
-            </span>
+            <span className="block">Thảo luận Triết học</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xl text-gray-400 leading-relaxed"
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+            className="text-xl leading-relaxed"
+            style={{
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+            }}
           >
             Triết học không chỉ để học, mà để tranh luận. Hãy chia sẻ cách bạn
             hiểu "giới tính" trong thời đại hôm nay.
@@ -179,17 +180,39 @@ export default function DiscussionPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 mb-8 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 mb-8 shadow-sm hover:shadow-md transition-all duration-500"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+              <h2
+                className="text-4xl font-bold mb-8 text-center"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Khảo sát: Giới tính là gì theo bạn?
               </h2>
 
               <div className="grid lg:grid-cols-2 gap-10">
                 {/* Survey Question */}
                 <div>
-                  <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                  <h3
+                    className="text-xl font-bold mb-6 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     Chọn quan điểm của bạn
                   </h3>
 
@@ -220,24 +243,41 @@ export default function DiscussionPage() {
                         color: "from-purple-500 to-violet-500",
                       },
                     ].map((option) => {
-                      const getButtonClass = () => {
+                      const getButtonStyle = () => {
                         if (selectedAnswer === option.id) {
-                          return "bg-gradient-to-r from-yellow-500 to-orange-500 text-black shadow-lg shadow-yellow-500/30";
+                          return {
+                            backgroundColor: "#C78B4E",
+                            color: "#F4EFE6",
+                            border: "1px solid #7A6A53",
+                          };
                         }
                         if (hasVoted) {
-                          return "bg-white/[0.05] text-gray-400 cursor-not-allowed border border-white/[0.1]";
+                          return {
+                            backgroundColor: "#F4EFE6",
+                            color: "#7A6A53",
+                            border: "1px solid #7A6A53",
+                          };
                         }
-                        return "bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] hover:border-white/[0.2]";
+                        return {
+                          backgroundColor: "#F4EFE6",
+                          color: "#3B3A36",
+                          border: "1px solid #7A6A53",
+                        };
                       };
 
                       return (
                         <motion.button
                           key={option.id}
-                          whileHover={{ scale: 1.02, y: -2 }}
-                          whileTap={{ scale: 0.98 }}
+                          whileHover={{ scale: 1.01, y: -2 }}
+                          whileTap={{ scale: 0.99 }}
                           onClick={() => handleVote(option.id)}
                           disabled={hasVoted}
-                          className={`w-full p-6 rounded-2xl text-left transition-all duration-300 ${getButtonClass()}`}
+                          className="w-full p-6 rounded-lg text-left transition-all duration-500 shadow-sm hover:shadow-md"
+                          style={{
+                            ...getButtonStyle(),
+                            fontFamily:
+                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          }}
                         >
                           <div className="flex items-center space-x-4">
                             <span className="text-3xl">{option.emoji}</span>
@@ -254,9 +294,21 @@ export default function DiscussionPage() {
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="mt-6 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl"
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="mt-6 p-6 rounded-lg shadow-sm"
+                      style={{
+                        backgroundColor: "#F4EFE6",
+                        border: "1px solid #7A6A53",
+                      }}
                     >
-                      <p className="text-green-300 font-medium text-lg">
+                      <p
+                        className="font-medium text-lg"
+                        style={{
+                          color: "#3B3A36",
+                          fontFamily:
+                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        }}
+                      >
                         ✅ Cảm ơn bạn đã tham gia khảo sát!
                       </p>
                     </motion.div>
@@ -265,7 +317,14 @@ export default function DiscussionPage() {
 
                 {/* Survey Results */}
                 <div>
-                  <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
+                  <h3
+                    className="text-xl font-bold mb-6 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     <BarChart3 className="w-5 h-5" />
                     Kết quả khảo sát hiện tại
                   </h3>
@@ -297,23 +356,49 @@ export default function DiscussionPage() {
                         key={item.label}
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
+                        transition={{
+                          delay: index * 0.1,
+                          duration: 0.8,
+                          ease: "easeOut",
+                        }}
                         className="space-y-2"
                       >
                         <div className="flex justify-between items-center">
-                          <span className="text-white font-medium">
+                          <span
+                            className="font-medium"
+                            style={{
+                              color: "#3B3A36",
+                              fontFamily:
+                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            }}
+                          >
                             {item.label}
                           </span>
-                          <span className="text-white text-sm font-bold">
+                          <span
+                            className="text-sm font-bold"
+                            style={{
+                              color: "#3B3A36",
+                              fontFamily:
+                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            }}
+                          >
                             {item.percentage}%
                           </span>
                         </div>
-                        <div className="w-full bg-white/[0.1] rounded-full h-3">
+                        <div
+                          className="w-full rounded-full h-3 overflow-hidden"
+                          style={{ backgroundColor: "#7A6A53" }}
+                        >
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${item.percentage}%` }}
-                            transition={{ duration: 1, delay: index * 0.2 }}
-                            className={`h-3 rounded-full ${item.color}`}
+                            transition={{
+                              duration: 1.2,
+                              delay: index * 0.2,
+                              ease: "easeOut",
+                            }}
+                            className="h-3 rounded-full shadow-sm"
+                            style={{ backgroundColor: "#C78B4E" }}
                           />
                         </div>
                       </motion.div>
@@ -332,15 +417,34 @@ export default function DiscussionPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 shadow-sm hover:shadow-md transition-all duration-500"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+              <h2
+                className="text-4xl font-bold mb-8 text-center"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Thảo luận cộng đồng
               </h2>
 
               {/* Comment Form */}
               <div className="mb-10">
-                <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
+                <h3
+                  className="text-xl font-bold mb-6 flex items-center gap-2"
+                  style={{
+                    color: "#C78B4E",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
                   <MessageCircle className="w-5 h-5" />
                   Chia sẻ quan điểm của bạn
                 </h3>
@@ -351,13 +455,28 @@ export default function DiscussionPage() {
                       value={newComment}
                       onChange={(e) => setNewComment(e.target.value)}
                       placeholder="Viết bình luận của bạn về quan điểm giới tính..."
-                      className="flex-1 p-4 rounded-2xl bg-white/[0.05] text-white placeholder-gray-400 border border-white/[0.1] focus:outline-none focus:border-yellow-400 focus:bg-white/[0.08] transition-all duration-300"
+                      className="flex-1 p-4 rounded-lg border transition-all duration-300 focus:outline-none focus:shadow-md"
+                      style={{
+                        backgroundColor: "#F4EFE6",
+                        color: "#3B3A36",
+                        border: "1px solid #7A6A53",
+                        fontFamily:
+                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      }}
                     />
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-bold rounded-2xl transition-all duration-300 shadow-lg shadow-yellow-500/30"
+                      whileHover={{ scale: 1.01, y: -2 }}
+                      whileTap={{ scale: 0.99 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="px-8 py-4 font-bold rounded-lg shadow-sm hover:shadow-md transition-all duration-500"
+                      style={{
+                        backgroundColor: "#C78B4E",
+                        color: "#F4EFE6",
+                        border: "1px solid #7A6A53",
+                        fontFamily:
+                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      }}
                     >
                       Gửi
                     </motion.button>
@@ -367,7 +486,14 @@ export default function DiscussionPage() {
 
               {/* Comments List */}
               <div className="space-y-6">
-                <h3 className="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
+                <h3
+                  className="text-xl font-bold mb-6 flex items-center gap-2"
+                  style={{
+                    color: "#C78B4E",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
                   <Users className="w-5 h-5" />
                   Bình luận nổi bật
                 </h3>
@@ -376,33 +502,77 @@ export default function DiscussionPage() {
                     key={comment.id}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-white/[0.05] rounded-2xl p-6 hover:bg-white/[0.08] transition-all duration-300"
+                    transition={{
+                      delay: index * 0.1,
+                      duration: 0.8,
+                      ease: "easeOut",
+                    }}
+                    className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-500"
+                    style={{
+                      backgroundColor: "#F4EFE6",
+                      border: "1px solid #7A6A53",
+                    }}
                   >
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">
+                        <div
+                          className="w-10 h-10 rounded-lg flex items-center justify-center shadow-sm"
+                          style={{ backgroundColor: "#C78B4E" }}
+                        >
+                          <span
+                            className="font-bold text-sm"
+                            style={{
+                              color: "#F4EFE6",
+                              fontFamily:
+                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            }}
+                          >
                             {comment.author.charAt(0)}
                           </span>
                         </div>
                         <div>
-                          <h4 className="font-bold text-white">
+                          <h4
+                            className="font-bold"
+                            style={{
+                              color: "#3B3A36",
+                              fontFamily:
+                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            }}
+                          >
                             {comment.author}
                           </h4>
-                          <span className="text-gray-400 text-sm">
+                          <span
+                            className="text-sm"
+                            style={{
+                              color: "#7A6A53",
+                              fontFamily:
+                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            }}
+                          >
                             {comment.timestamp}
                           </span>
                         </div>
                       </div>
                     </div>
-                    <p className="text-gray-200 mb-4 leading-relaxed">
+                    <p
+                      className="mb-4 leading-relaxed"
+                      style={{
+                        color: "#3B3A36",
+                        fontFamily:
+                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      }}
+                    >
                       {comment.content}
                     </p>
                     <div className="flex space-x-6">
                       <motion.button
                         whileHover={{ scale: 1.05 }}
-                        className="flex items-center space-x-2 text-gray-400 hover:text-green-400 transition-colors duration-300"
+                        className="flex items-center space-x-2 transition-colors duration-300"
+                        style={{
+                          color: "#7A6A53",
+                          fontFamily:
+                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        }}
                       >
                         <ThumbsUp className="w-4 h-4" />
                         <span className="text-sm font-medium">
@@ -411,7 +581,12 @@ export default function DiscussionPage() {
                       </motion.button>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
-                        className="flex items-center space-x-2 text-gray-400 hover:text-red-400 transition-colors duration-300"
+                        className="flex items-center space-x-2 transition-colors duration-300"
+                        style={{
+                          color: "#7A6A53",
+                          fontFamily:
+                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        }}
                       >
                         <ThumbsDown className="w-4 h-4" />
                         <span className="text-sm font-medium">
@@ -433,19 +608,27 @@ export default function DiscussionPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-5xl font-bold mb-6"
+              style={{
+                color: "#3B3A36",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
-              <span className="bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
-                Khám phá thêm
-              </span>
+              Khám phá thêm
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400 mb-10"
+              transition={{ delay: 0.2, duration: 1.2, ease: "easeOut" }}
+              className="text-xl mb-10"
+              style={{
+                color: "#3B3A36",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
               Hãy xem lại Timeline Tư tưởng hoặc Comic Strip để tìm triết gia
               bạn đồng cảm nhất.
@@ -454,14 +637,22 @@ export default function DiscussionPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.4, duration: 1.2, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-5 justify-center"
             >
               <Link href="/timeline">
                 <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold py-4 px-9 rounded-full shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:shadow-yellow-500/40 transition-all duration-300 flex items-center justify-center gap-3"
+                  whileHover={{ scale: 1.01, y: -2 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="font-semibold py-4 px-9 rounded-lg shadow-sm hover:shadow-md transition-all duration-500 flex items-center justify-center gap-3"
+                  style={{
+                    backgroundColor: "#C78B4E",
+                    color: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
                   <TrendingUp className="w-5 h-5" />
                   <span>Khám phá Timeline</span>
@@ -470,9 +661,17 @@ export default function DiscussionPage() {
 
               <Link href="/comic">
                 <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-bold py-4 px-9 rounded-full transition-all duration-300"
+                  whileHover={{ scale: 1.01, y: -2 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="font-semibold py-4 px-9 rounded-lg shadow-sm hover:shadow-md transition-all duration-500"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    color: "#3B3A36",
+                    border: "1px solid #7A6A53",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
                   Đọc Comic Strip
                 </motion.button>
