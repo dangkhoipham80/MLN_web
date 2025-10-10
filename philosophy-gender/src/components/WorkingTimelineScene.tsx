@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Sphere, Text, Html } from "@react-three/drei";
+import { Sphere, Text, Html, RoundedBox } from "@react-three/drei";
 import { useRouter } from "next/navigation";
 import * as THREE from "three";
 
@@ -19,73 +19,342 @@ interface Philosopher {
 }
 
 interface TimelineNodeProps {
-  readonly position: [number, number, number];
-  readonly philosopher: Philosopher;
-  readonly color: string;
-  readonly onHover: (philosopher: Philosopher) => void;
-  readonly onLeave: () => void;
-  readonly onClick: (philosopher: Philosopher) => void;
+  position: [number, number, number];
+  philosopher: Philosopher;
+  color: string;
+  image: string;
+  isActive?: boolean;
+  onHover: (philosopher: Philosopher) => void;
+  onLeave: () => void;
+  onClick: (philosopher: Philosopher) => void;
 }
 
 function TimelineNode({
   position,
   philosopher,
   color,
+  image,
+  isActive = false,
   onHover,
   onLeave,
   onClick,
 }: TimelineNodeProps) {
   const meshRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
 
-  useFrame(() => {
+  useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.y += 0.01;
-      if (hovered) {
-        meshRef.current.scale.setScalar(1.2);
+      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
+    }
+
+    const targetY = hovered || isActive ? position[1] + 0.5 : position[1];
+
+    if (groupRef.current) {
+      if (hovered || isActive) {
+        groupRef.current.position.y =
+          Math.sin(state.clock.getElapsedTime() * 2) * 0.15 + targetY;
       } else {
-        meshRef.current.scale.lerp(new THREE.Vector3(1, 1, 1), 0.1);
+        groupRef.current.position.y +=
+          (position[1] - groupRef.current.position.y) * 0.1;
       }
     }
   });
 
   return (
-    <group position={position}>
+    <group ref={groupRef} position={position}>
+      {/* Glowing base ring */}
+      <mesh position={[0, -1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[0.8, 1, 32]} />
+        <meshBasicMaterial color={color} transparent opacity={0.3} />
+      </mesh>
+
+      {/* Connecting line to timeline */}
+      <mesh position={[0, -0.75, 0]}>
+        <cylinderGeometry args={[0.02, 0.02, 1.5, 8]} />
+        <meshStandardMaterial
+          color={color}
+          emissive={color}
+          emissiveIntensity={0.5}
+        />
+      </mesh>
+
+      {/* Main sphere */}
       <Sphere
         ref={meshRef}
-        args={[0.5, 32, 32]}
-        onPointerOver={() => {
+        args={[0.8, 64, 64]}
+        onPointerEnter={() => {
           setHovered(true);
           onHover(philosopher);
         }}
-        onPointerOut={() => {
+        onPointerLeave={() => {
           setHovered(false);
           onLeave();
         }}
         onClick={() => onClick(philosopher)}
+        scale={hovered || isActive ? 1.3 : 1}
       >
-        <meshStandardMaterial color={color} />
+        <meshStandardMaterial
+          color={color}
+          metalness={0.6}
+          roughness={0.2}
+          emissive={color}
+          emissiveIntensity={hovered || isActive ? 0.8 : 0.2}
+        />
       </Sphere>
 
-      <Text
-        position={[0, -1, 0]}
-        fontSize={0.3}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {philosopher.name}
-      </Text>
+      {/* Outer glow sphere */}
+      <Sphere args={[1, 32, 32]} position={[0, 0, 0]}>
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={hovered || isActive ? 0.4 : 0.1}
+          side={THREE.BackSide}
+        />
+      </Sphere>
 
-      <Text
-        position={[0, -1.3, 0]}
-        fontSize={0.2}
-        color="gray"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {philosopher.era}
-      </Text>
+      {/* Orbiting particles */}
+      {[0, 1, 2].map((i) => (
+        <mesh
+          key={i}
+          position={[
+            Math.cos((i * Math.PI * 2) / 3) * 1.5,
+            Math.sin((i * Math.PI * 2) / 3) * 0.3,
+            Math.sin((i * Math.PI * 2) / 3) * 1.5,
+          ]}
+        >
+          <sphereGeometry args={[0.08, 16, 16]} />
+          <meshStandardMaterial
+            color={color}
+            emissive={color}
+            emissiveIntensity={0.8}
+          />
+        </mesh>
+      ))}
+
+      {/* Info card */}
+      {hovered && (
+        <Html position={[0, 2, 0]} center style={{ pointerEvents: "none" }}>
+          <div
+            style={{
+              background: "rgba(0, 0, 0, 0.9)",
+              backdropFilter: "blur(20px)",
+              border: `2px solid ${color}`,
+              borderRadius: "20px",
+              padding: "20px",
+              minWidth: "280px",
+              maxWidth: "320px",
+              boxShadow: `0 20px 60px ${color}40`,
+              transform: "translateY(-20px)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "15px",
+                marginBottom: "15px",
+              }}
+            >
+              <img
+                src={image}
+                alt={philosopher.name}
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "50%",
+                  border: `3px solid ${color}`,
+                  objectFit: "cover",
+                }}
+              />
+              <div>
+                <h3
+                  style={{
+                    color: "white",
+                    margin: "0 0 5px 0",
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {philosopher.name}
+                </h3>
+                <p
+                  style={{
+                    color: color,
+                    margin: 0,
+                    fontSize: "12px",
+                    fontWeight: "600",
+                  }}
+                >
+                  {philosopher.era}
+                </p>
+              </div>
+            </div>
+            <div
+              style={{
+                background: `linear-gradient(135deg, ${color}20, transparent)`,
+                borderLeft: `3px solid ${color}`,
+                padding: "12px",
+                borderRadius: "8px",
+                marginBottom: "12px",
+              }}
+            >
+              <p
+                style={{
+                  color: "white",
+                  margin: 0,
+                  fontSize: "14px",
+                  fontStyle: "italic",
+                }}
+              >
+                "{philosopher.quote}"
+              </p>
+            </div>
+            <p
+              style={{
+                color: "#cbd5e1",
+                margin: 0,
+                fontSize: "13px",
+                lineHeight: "1.5",
+              }}
+            >
+              {philosopher.summary}
+            </p>
+          </div>
+        </Html>
+      )}
+
+      {/* Name label below - Fixed alignment */}
+      <Html position={[0, -2.5, 0]} center>
+        <div style={{ textAlign: "center", pointerEvents: "none" }}>
+          <div
+            style={{
+              color: "white",
+              fontSize: "18px",
+              fontWeight: "bold",
+              marginBottom: "4px",
+              textShadow: "0 0 10px rgba(0,0,0,0.8)",
+            }}
+          >
+            {philosopher.name}
+          </div>
+          <div
+            style={{
+              color: color,
+              fontSize: "14px",
+              fontWeight: "600",
+            }}
+          >
+            {philosopher.era}
+          </div>
+        </div>
+      </Html>
+    </group>
+  );
+}
+
+function Timeline({ activeIndex }: { activeIndex: number }) {
+  return (
+    <group position={[0, -1.5, 0]}>
+      {/* Main timeline bar */}
+      <RoundedBox args={[22, 0.3, 0.3]} radius={0.15}>
+        <meshStandardMaterial
+          color="#4c1d95"
+          metalness={0.8}
+          roughness={0.2}
+          emissive="#6d28d9"
+          emissiveIntensity={0.3}
+        />
+      </RoundedBox>
+
+      {/* Timeline glow */}
+      <mesh position={[0, 0, -0.2]}>
+        <boxGeometry args={[22, 0.5, 0.1]} />
+        <meshBasicMaterial color="#8b5cf6" transparent opacity={0.2} />
+      </mesh>
+
+      {/* Era markers with highlight */}
+      <Html position={[-10, -1.2, 0]} center>
+        <div
+          style={{
+            color: activeIndex <= 1 ? "#8b5cf6" : "#6b7280",
+            fontSize: "24px",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            transition: "all 0.3s ease",
+            textShadow: activeIndex <= 1 ? "0 0 20px #8b5cf6" : "none",
+          }}
+        >
+          Cổ Đại
+        </div>
+      </Html>
+      <Html position={[-2, -1.2, 0]} center>
+        <div
+          style={{
+            color: activeIndex >= 2 && activeIndex <= 3 ? "#f59e0b" : "#6b7280",
+            fontSize: "24px",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            transition: "all 0.3s ease",
+            textShadow:
+              activeIndex >= 2 && activeIndex <= 3
+                ? "0 0 20px #f59e0b"
+                : "none",
+          }}
+        >
+          Tân Đại
+        </div>
+      </Html>
+      <Html position={[6, -1.2, 0]} center>
+        <div
+          style={{
+            color: activeIndex >= 4 ? "#ec4899" : "#6b7280",
+            fontSize: "24px",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            transition: "all 0.3s ease",
+            textShadow: activeIndex >= 4 ? "0 0 20px #ec4899" : "none",
+          }}
+        >
+          Hiện Đại
+        </div>
+      </Html>
+    </group>
+  );
+}
+
+function BackgroundElements() {
+  const particlesRef = useRef<THREE.Group>(null);
+
+  const particles = useMemo(() => {
+    const temp = [];
+    for (let i = 0; i < 100; i++) {
+      temp.push({
+        position: [
+          (Math.random() - 0.5) * 40,
+          (Math.random() - 0.5) * 20,
+          (Math.random() - 0.5) * 40,
+        ] as [number, number, number],
+        scale: Math.random() * 0.1 + 0.05,
+      });
+    }
+    return temp;
+  }, []);
+
+  useFrame((state) => {
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
+    }
+  });
+
+  return (
+    <group ref={particlesRef}>
+      {particles.map((particle, i) => (
+        <mesh key={i} position={particle.position}>
+          <sphereGeometry args={[particle.scale, 8, 8]} />
+          <meshBasicMaterial color="#a78bfa" transparent opacity={0.3} />
+        </mesh>
+      ))}
     </group>
   );
 }
@@ -94,6 +363,8 @@ export default function WorkingTimelineScene() {
   const router = useRouter();
   const [hoveredPhilosopher, setHoveredPhilosopher] =
     useState<Philosopher | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const philosophers: Philosopher[] = [
     {
@@ -195,9 +466,31 @@ export default function WorkingTimelineScene() {
     },
   ];
 
-  const handlePhilosopherClick = (philosopher: Philosopher) => {
-    const name = philosopher.name.toLowerCase().replace(/\s+/g, "-");
-    router.push(`/philosopher/${name}`);
+  const images = [
+    "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+  ];
+
+  const colors = [
+    "#8b5cf6",
+    "#ef4444",
+    "#f59e0b",
+    "#10b981",
+    "#ec4899",
+    "#6366f1",
+  ];
+
+  const handlePhilosopherClick = (philosopher: Philosopher, index: number) => {
+    setActiveIndex(index);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      const name = philosopher.name.toLowerCase().replace(/\s+/g, "-");
+      router.push(`/philosopher/${name}`);
+    }, 300);
   };
 
   const handleHover = (philosopher: Philosopher) => {
@@ -210,63 +503,143 @@ export default function WorkingTimelineScene() {
 
   return (
     <>
-      {/* Timeline Axis */}
-      <mesh position={[0, 0, 0]}>
-        <cylinderGeometry args={[0.1, 0.1, 20, 8]} />
-        <meshStandardMaterial color="#4f46e5" />
-      </mesh>
+      {/* Lighting */}
+      <ambientLight intensity={0.4} />
+      <pointLight position={[10, 10, 10]} intensity={1} color="#a78bfa" />
+      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ec4899" />
+      <spotLight
+        position={[0, 15, 0]}
+        angle={0.6}
+        penumbra={1}
+        intensity={1}
+        color="#ffffff"
+        castShadow
+      />
 
-      {/* Philosopher Nodes */}
+      {/* Background elements */}
+      <BackgroundElements />
+
+      {/* Timeline */}
+      <Timeline activeIndex={activeIndex} />
+
+      {/* Philosophers */}
       {philosophers.map((philosopher, index) => {
-        const x = (index - (philosophers.length - 1) / 2) * 3;
-        const y = Math.sin(index * 0.5) * 2;
-        const z = Math.cos(index * 0.3) * 2;
+        const position: [number, number, number] = [(index - 2.5) * 4, 0, 0];
 
-        const colors = [
-          "#ef4444",
-          "#f97316",
-          "#eab308",
-          "#22c55e",
-          "#3b82f6",
-          "#8b5cf6",
-        ];
-        const color = colors[index % colors.length];
+        const isActive = index === activeIndex;
+        const isDimmed = isTransitioning && !isActive;
 
         return (
-          <TimelineNode
-            key={philosopher.name}
-            position={[x, y, z]}
-            philosopher={philosopher}
-            color={color}
-            onHover={handleHover}
-            onLeave={handleLeave}
-            onClick={handlePhilosopherClick}
-          />
+          <group key={philosopher.name} opacity={isDimmed ? 0.3 : 1}>
+            <TimelineNode
+              position={position}
+              philosopher={philosopher}
+              color={colors[index]}
+              image={images[index]}
+              isActive={isActive}
+              onHover={handleHover}
+              onLeave={handleLeave}
+              onClick={() => handlePhilosopherClick(philosopher, index)}
+            />
+          </group>
         );
       })}
 
-      {/* Hover Information */}
-      {hoveredPhilosopher && (
-        <Html position={[0, 3, 0]} center>
-          <div className="bg-black/80 backdrop-blur-sm text-white p-4 rounded-lg max-w-sm border border-white/20">
-            <h3 className="font-bold text-lg mb-2">
-              {hoveredPhilosopher.name}
-            </h3>
-            <p className="text-sm text-gray-300 mb-2">
-              {hoveredPhilosopher.era}
-            </p>
-            <p className="text-sm italic mb-2">"{hoveredPhilosopher.quote}"</p>
-            <p className="text-xs text-gray-400">
-              {hoveredPhilosopher.summary}
-            </p>
-          </div>
-        </Html>
-      )}
+      {/* Navigation Controls */}
+      <Html position={[0, 4, 0]} center>
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            alignItems: "center",
+            background: "rgba(0, 0, 0, 0.8)",
+            backdropFilter: "blur(20px)",
+            padding: "15px 30px",
+            borderRadius: "50px",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.5)",
+          }}
+        >
+          <button
+            onClick={() => {
+              if (activeIndex > 0) {
+                setActiveIndex(activeIndex - 1);
+              }
+            }}
+            disabled={activeIndex === 0}
+            style={{
+              background:
+                activeIndex === 0
+                  ? "rgba(100, 100, 100, 0.3)"
+                  : "linear-gradient(135deg, #8b5cf6, #6d28d9)",
+              border: "none",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "25px",
+              cursor: activeIndex === 0 ? "not-allowed" : "pointer",
+              fontSize: "14px",
+              fontWeight: "bold",
+              transition: "all 0.3s ease",
+              opacity: activeIndex === 0 ? 0.5 : 1,
+            }}
+          >
+            ← Trước
+          </button>
 
-      {/* Lighting */}
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} />
+          <div
+            style={{
+              color: "white",
+              fontSize: "16px",
+              fontWeight: "bold",
+              minWidth: "180px",
+              textAlign: "center",
+            }}
+          >
+            {activeIndex + 1} / {philosophers.length}
+          </div>
+
+          <button
+            onClick={() => {
+              if (activeIndex < philosophers.length - 1) {
+                setActiveIndex(activeIndex + 1);
+              }
+            }}
+            disabled={activeIndex === philosophers.length - 1}
+            style={{
+              background:
+                activeIndex === philosophers.length - 1
+                  ? "rgba(100, 100, 100, 0.3)"
+                  : "linear-gradient(135deg, #ec4899, #db2777)",
+              border: "none",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "25px",
+              cursor:
+                activeIndex === philosophers.length - 1
+                  ? "not-allowed"
+                  : "pointer",
+              fontSize: "14px",
+              fontWeight: "bold",
+              transition: "all 0.3s ease",
+              opacity: activeIndex === philosophers.length - 1 ? 0.5 : 1,
+            }}
+          >
+            Sau →
+          </button>
+        </div>
+      </Html>
+
+      {/* Floor reflection */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]} receiveShadow>
+        <planeGeometry args={[50, 50]} />
+        <meshStandardMaterial
+          color="#0a0a0f"
+          metalness={0.9}
+          roughness={0.1}
+          transparent
+          opacity={0.5}
+        />
+      </mesh>
     </>
   );
 }
