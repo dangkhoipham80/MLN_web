@@ -9,23 +9,24 @@ import Footer from "@/components/Footer";
 export default function TeamPage() {
   const teamMembers = [
     {
-      name: "Nguyễn Văn A",
+      name: "Phạm Đăng Khôi",
       role: "Frontend Developer",
-      description: "Phát triển giao diện và tương tác 3D với Three.js",
+      description: "Phát triển giao diện, AI chat và tương tác 3D với Three.js",
       icon: Users,
       color: "#8B5CF6",
     },
     {
-      name: "Trần Thị B",
+      name: "Nguyễn Thị Trúc Ly, Nguyễn Sơn Nam",
       role: "Content Creator",
-      description: "Nghiên cứu và viết nội dung triết học",
+      description: "Nghiên cứu và viết nội dung triết học, Comic strip",
       icon: BookOpen,
       color: "#EC4899",
     },
     {
-      name: "Lê Văn C",
-      role: "UI/UX Designer",
-      description: "Thiết kế giao diện và trải nghiệm người dùng",
+      name: "Nguyễn Hoàng Đức Minh",
+      role: "UI/UX Designer, Game Developer",
+      description:
+        "Thiết kế giao diện và trải nghiệm người dùng, tạo trò chơi.",
       icon: Users,
       color: "#3B82F6",
     },

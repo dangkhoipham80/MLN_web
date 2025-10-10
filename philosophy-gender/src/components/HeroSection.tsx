@@ -129,6 +129,19 @@ export default function HeroSection() {
                   <span>Đọc Comic Strip</span>
                 </motion.button>
               </Link>
+
+              <Link href="/philo-gender-chat">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold py-4 px-9 rounded-full shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 transition-all duration-300 flex items-center gap-3"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                  <span>Chat với AI Triết gia</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </motion.button>
+              </Link>
             </motion.div>
 
             {/* Feature Cards */}
@@ -162,6 +175,14 @@ export default function HeroSection() {
                   gradient: "from-violet-600 to-fuchsia-600",
                   link: "/discussion",
                   image: "/assets/wollstonecraft.jpg",
+                },
+                {
+                  icon: MessageCircle,
+                  title: "AI Triết gia",
+                  desc: "Chat với AI chuyên gia về triết học và giới tính",
+                  gradient: "from-emerald-500 to-teal-500",
+                  link: "/philo-gender-chat",
+                  image: "/assets/butler.jpg",
                 },
                 {
                   icon: Users,

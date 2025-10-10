@@ -90,7 +90,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {[
                   { name: "Trang chủ", href: "/" },
-                  { name: "Timeline Triết học", href: "/timeline" },
+                  { name: "Timeline", href: "/timeline" },
                   { name: "Comic Strip", href: "/comic" },
                   { name: "Thảo luận", href: "/discussion" },
                   { name: "Giới thiệu Nhóm", href: "/team" },
@@ -166,7 +166,7 @@ export default function Footer() {
                         "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
                     }}
                   >
-                    Nhóm PBL Triết học
+                    Group 10 - MLN111
                   </span>
                 </div>
                 <div
@@ -181,7 +181,7 @@ export default function Footer() {
                         "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
                     }}
                   >
-                    Môn: Triết học đại cương
+                    Môn: MLN111
                   </span>
                 </div>
               </div>

@@ -2,7 +2,15 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, BookOpen, Clock, MessageCircle, Users } from "lucide-react";
+import {
+  Menu,
+  X,
+  BookOpen,
+  Clock,
+  MessageCircle,
+  Users,
+  Bot,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function Navigation() {
@@ -12,6 +20,7 @@ export default function Navigation() {
     { name: "Trang chủ", href: "/", icon: BookOpen },
     { name: "Timeline", href: "/timeline", icon: Clock },
     { name: "Comic", href: "/comic", icon: BookOpen },
+    { name: "AI", href: "/philo-gender-chat", icon: Bot },
     { name: "Thảo luận", href: "/discussion", icon: MessageCircle },
     { name: "Nhóm", href: "/team", icon: Users },
   ];
