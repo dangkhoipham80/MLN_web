@@ -126,44 +126,23 @@ export default function ComicPage() {
 
   return (
     <div
-      className="min-h-screen bg-[#0a0a0f] overflow-hidden"
+      className="min-h-screen overflow-hidden"
       style={{
+        backgroundColor: "#F4EFE6",
         fontFamily:
-          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
       <Navigation />
 
-      {/* Animated Background - giống HeroSection */}
+      {/* Philosophical Study Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-fuchsia-950/30 to-[#0a0a0f]" />
-
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -left-48 w-96 h-96 bg-violet-600 rounded-full blur-[128px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-1/4 -right-48 w-96 h-96 bg-fuchsia-600 rounded-full blur-[128px]"
-        />
-
+        {/* Subtle parchment texture overlay */}
         <div
-          className="absolute inset-0 opacity-[0.015] mix-blend-overlay"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 10h20M10 0v20' stroke='%23C78B4E' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23paper)'/%3E%3C/svg%3E")`,
           }}
         />
       </div>
@@ -175,7 +154,12 @@ export default function ComicPage() {
           <Link href="/">
             <motion.button
               whileHover={{ x: -4 }}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-2 transition-colors duration-300"
+              style={{
+                color: "#7A6A53",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
               <ArrowLeft className="w-5 h-5" />
               <span>Về trang chủ</span>
@@ -188,10 +172,22 @@ export default function ComicPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 backdrop-blur-xl border border-white/10 mb-8"
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg mb-8 shadow-sm"
+            style={{
+              backgroundColor: "#C78B4E",
+              border: "1px solid #7A6A53",
+            }}
           >
-            <Sparkles className="w-4 h-4 text-violet-400" />
-            <span className="text-sm font-medium tracking-wide text-violet-200">
+            <Sparkles className="w-4 h-4" style={{ color: "#F4EFE6" }} />
+            <span
+              className="text-sm font-medium tracking-wide"
+              style={{
+                color: "#F4EFE6",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
+            >
               Comic Strip Triết học
             </span>
           </motion.div>
@@ -199,23 +195,28 @@ export default function ComicPage() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
             className="text-6xl md:text-7xl font-bold mb-6"
             style={{
-              fontFamily: "'Instrument Serif', Georgia, serif",
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
               fontWeight: 400,
             }}
           >
-            <span className="block bg-gradient-to-br from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
-              Comic Strip
-            </span>
+            <span className="block">Comic Strip</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xl text-gray-400 leading-relaxed"
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+            className="text-xl leading-relaxed"
+            style={{
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+            }}
           >
             Hài hước, triết lý, và đôi khi châm biếm — những đoạn hội thoại
             tưởng tượng giúp bạn cảm nhận cách triết học cổ đại và hiện đại
@@ -230,7 +231,12 @@ export default function ComicPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 shadow-sm hover:shadow-md transition-all duration-500"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
               {/* Navigation */}
               <div className="flex justify-between items-center mb-10">
@@ -238,20 +244,54 @@ export default function ComicPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={prevComic}
-                  className="p-4 bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] hover:border-white/[0.2] rounded-2xl transition-all duration-300"
+                  className="p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                  }}
                 >
-                  <ChevronLeft className="w-6 h-6 text-white" />
+                  <ChevronLeft
+                    className="w-6 h-6"
+                    style={{ color: "#3B3A36" }}
+                  />
                 </motion.button>
 
                 <div className="text-center">
-                  <h2 className="text-3xl font-bold mb-3 bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+                  <h2
+                    className="text-3xl font-bold mb-3"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     {comics[currentComic].title}
                   </h2>
-                  <p className="text-gray-300 text-lg mb-2">
+                  <p
+                    className="text-lg mb-2"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     {comics[currentComic].setting}
                   </p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-full">
-                    <span className="text-yellow-300 text-sm font-medium">
+                  <div
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg"
+                    style={{
+                      backgroundColor: "#C78B4E",
+                      border: "1px solid #7A6A53",
+                    }}
+                  >
+                    <span
+                      className="text-sm font-medium"
+                      style={{
+                        color: "#F4EFE6",
+                        fontFamily:
+                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      }}
+                    >
                       {comics[currentComic].era}
                     </span>
                   </div>
@@ -261,9 +301,16 @@ export default function ComicPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={nextComic}
-                  className="p-4 bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] hover:border-white/[0.2] rounded-2xl transition-all duration-300"
+                  className="p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                  }}
                 >
-                  <ChevronRight className="w-6 h-6 text-white" />
+                  <ChevronRight
+                    className="w-6 h-6"
+                    style={{ color: "#3B3A36" }}
+                  />
                 </motion.button>
               </div>
 
@@ -284,20 +331,52 @@ export default function ComicPage() {
                         key={`${line.speaker}-${index}`}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.2 }}
-                        className={`p-6 rounded-2xl ${line.color} text-white shadow-lg`}
+                        transition={{
+                          delay: index * 0.2,
+                          duration: 0.8,
+                          ease: "easeOut",
+                        }}
+                        className="p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-500"
+                        style={{
+                          backgroundColor: "#F4EFE6",
+                          border: "1px solid #7A6A53",
+                        }}
                       >
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">
+                          <div
+                            className="w-10 h-10 rounded-lg flex items-center justify-center shadow-sm"
+                            style={{ backgroundColor: "#C78B4E" }}
+                          >
+                            <span
+                              className="font-bold text-sm"
+                              style={{
+                                color: "#F4EFE6",
+                                fontFamily:
+                                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                              }}
+                            >
                               {line.speaker.charAt(0)}
                             </span>
                           </div>
-                          <div className="font-bold text-xl">
+                          <div
+                            className="font-bold text-xl"
+                            style={{
+                              color: "#3B3A36",
+                              fontFamily:
+                                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                            }}
+                          >
                             {line.speaker}
                           </div>
                         </div>
-                        <div className="text-lg leading-relaxed pl-13">
+                        <div
+                          className="text-lg leading-relaxed pl-13"
+                          style={{
+                            color: "#3B3A36",
+                            fontFamily:
+                              "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                          }}
+                        >
                           "{line.text}"
                         </div>
                       </motion.div>
@@ -308,16 +387,34 @@ export default function ComicPage() {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 }}
-                    className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 p-8 rounded-2xl"
+                    transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+                    className="p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-500"
+                    style={{
+                      backgroundColor: "#F4EFE6",
+                      border: "1px solid #7A6A53",
+                    }}
                   >
                     <div className="flex items-center gap-3 mb-4">
-                      <Quote className="w-6 h-6 text-yellow-400" />
-                      <h3 className="text-2xl font-bold text-yellow-300">
+                      <Quote className="w-6 h-6" style={{ color: "#C78B4E" }} />
+                      <h3
+                        className="text-2xl font-bold"
+                        style={{
+                          color: "#3B3A36",
+                          fontFamily:
+                            "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                        }}
+                      >
                         Ý nghĩa triết học
                       </h3>
                     </div>
-                    <p className="text-white text-lg leading-relaxed">
+                    <p
+                      className="text-lg leading-relaxed"
+                      style={{
+                        color: "#3B3A36",
+                        fontFamily:
+                          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                      }}
+                    >
                       {comics[currentComic].meaning}
                     </p>
                   </motion.div>
@@ -333,10 +430,12 @@ export default function ComicPage() {
                     whileTap={{ scale: 0.9 }}
                     onClick={() => setCurrentComic(index)}
                     className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                      index === currentComic
-                        ? "bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg shadow-yellow-500/30"
-                        : "bg-white/30 hover:bg-white/50"
+                      index === currentComic ? "shadow-md" : "hover:opacity-70"
                     }`}
+                    style={{
+                      backgroundColor:
+                        index === currentComic ? "#C78B4E" : "#7A6A53",
+                    }}
                   />
                 ))}
               </div>
@@ -351,25 +450,46 @@ export default function ComicPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-5xl font-bold mb-6"
+              style={{
+                color: "#3B3A36",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
-              <span className="bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
-                Thảo luận về Comic
-              </span>
+              Thảo luận về Comic
             </motion.h2>
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              transition={{ delay: 0.2, duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 shadow-sm hover:shadow-md transition-all duration-500"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+              <h3
+                className="text-3xl font-bold mb-6"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Bạn đồng ý hay phản đối quan điểm nào?
               </h3>
-              <p className="text-gray-400 text-xl mb-10 leading-relaxed">
+              <p
+                className="text-xl mb-10 leading-relaxed"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Hãy chia sẻ suy nghĩ của bạn về các cuộc đối thoại này và tham
                 gia thảo luận với cộng đồng.
               </p>
@@ -377,9 +497,17 @@ export default function ComicPage() {
               <div className="flex flex-col sm:flex-row gap-5 justify-center">
                 <Link href="/discussion">
                   <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group relative overflow-hidden bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-4 px-9 rounded-full shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300 flex items-center justify-center gap-3"
+                    whileHover={{ scale: 1.01, y: -2 }}
+                    whileTap={{ scale: 0.99 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="font-semibold py-4 px-9 rounded-lg shadow-sm hover:shadow-md transition-all duration-500 flex items-center justify-center gap-3"
+                    style={{
+                      backgroundColor: "#C78B4E",
+                      color: "#F4EFE6",
+                      border: "1px solid #7A6A53",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
                   >
                     <MessageCircle className="w-5 h-5" />
                     <span>Tham gia thảo luận</span>
@@ -388,9 +516,17 @@ export default function ComicPage() {
 
                 <Link href="/timeline">
                   <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-bold py-4 px-9 rounded-full transition-all duration-300 flex items-center gap-3"
+                    whileHover={{ scale: 1.01, y: -2 }}
+                    whileTap={{ scale: 0.99 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="font-semibold py-4 px-9 rounded-lg shadow-sm hover:shadow-md transition-all duration-500 flex items-center gap-3"
+                    style={{
+                      backgroundColor: "#F4EFE6",
+                      color: "#3B3A36",
+                      border: "1px solid #7A6A53",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
                   >
                     <BookOpen className="w-5 h-5" />
                     <span>Đọc thêm về triết gia</span>
