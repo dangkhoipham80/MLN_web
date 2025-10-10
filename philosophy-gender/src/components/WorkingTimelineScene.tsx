@@ -530,7 +530,7 @@ export default function WorkingTimelineScene() {
         const isDimmed = isTransitioning && !isActive;
 
         return (
-          <group key={philosopher.name} opacity={isDimmed ? 0.3 : 1}>
+          <group key={philosopher.name}>
             <TimelineNode
               position={position}
               philosopher={philosopher}
