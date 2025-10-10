@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  Users,
-  Github,
-  Mail,
-  BookOpen,
-  Sparkles,
-  ArrowLeft,
-} from "lucide-react";
+import { Users, Mail, BookOpen, Sparkles } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -33,51 +26,30 @@ export default function TeamPage() {
       name: "Lê Văn C",
       role: "UI/UX Designer",
       description: "Thiết kế giao diện và trải nghiệm người dùng",
-      icon: Github,
+      icon: Users,
       color: "#3B82F6",
     },
   ];
 
   return (
     <div
-      className="min-h-screen bg-[#0a0a0f] overflow-hidden"
+      className="min-h-screen overflow-hidden"
       style={{
+        backgroundColor: "#F4EFE6",
         fontFamily:
-          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C78B4E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     >
       <Navigation />
 
-      {/* Animated Background - giống HeroSection */}
+      {/* Philosophical Study Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-950/50 via-fuchsia-950/30 to-[#0a0a0f]" />
-
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -left-48 w-96 h-96 bg-violet-600 rounded-full blur-[128px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-1/4 -right-48 w-96 h-96 bg-fuchsia-600 rounded-full blur-[128px]"
-        />
-
+        {/* Subtle parchment texture overlay */}
         <div
-          className="absolute inset-0 opacity-[0.015] mix-blend-overlay"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 10h20M10 0v20' stroke='%23C78B4E' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23paper)'/%3E%3C/svg%3E")`,
           }}
         />
       </div>
@@ -102,10 +74,22 @@ export default function TeamPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 backdrop-blur-xl border border-white/10 mb-8"
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg mb-8 shadow-sm"
+            style={{
+              backgroundColor: "#C78B4E",
+              border: "1px solid #7A6A53",
+            }}
           >
-            <Sparkles className="w-4 h-4 text-violet-400" />
-            <span className="text-sm font-medium tracking-wide text-violet-200">
+            <Sparkles className="w-4 h-4" style={{ color: "#F4EFE6" }} />
+            <span
+              className="text-sm font-medium tracking-wide"
+              style={{
+                color: "#F4EFE6",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
+            >
               Về dự án
             </span>
           </motion.div>
@@ -113,23 +97,28 @@ export default function TeamPage() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
             className="text-6xl md:text-7xl font-bold mb-6"
             style={{
-              fontFamily: "'Instrument Serif', Georgia, serif",
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
               fontWeight: 400,
             }}
           >
-            <span className="block bg-gradient-to-br from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">
-              Giới thiệu Nhóm
-            </span>
+            <span className="block">Giới thiệu Nhóm</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xl text-gray-400 leading-relaxed"
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+            className="text-xl leading-relaxed"
+            style={{
+              color: "#3B3A36",
+              fontFamily:
+                "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+            }}
           >
             Dự án Triết học & Giới tính - Từ cổ đại đến hiện đại
           </motion.p>
@@ -142,74 +131,178 @@ export default function TeamPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 mb-8 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 mb-8 shadow-sm hover:shadow-md transition-all duration-500"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <h2 className="text-4xl font-bold text-white mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+              <h2
+                className="text-4xl font-bold mb-8 text-center"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Thông tin Dự án
               </h2>
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
-                  <h3 className="text-xl font-bold text-amber-300 mb-3 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                  <h3
+                    className="text-xl font-bold mb-3 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     Tên dự án
                   </h3>
-                  <p className="text-gray-200 mb-8 leading-relaxed">
+                  <p
+                    className="mb-8 leading-relaxed"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     Triết học & Giới tính – Từ cổ đại đến hiện đại
                   </p>
 
-                  <h3 className="text-xl font-bold text-amber-300 mb-3 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                  <h3
+                    className="text-xl font-bold mb-3 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     Mục tiêu
                   </h3>
-                  <p className="text-gray-200 leading-relaxed">
+                  <p
+                    className="leading-relaxed"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     Khám phá sự tiến hóa của tư tưởng về giới tính trong triết
                     học, từ những quan điểm cổ đại đến các lý thuyết hiện đại về
                     bản sắc và quyền cá nhân.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-amber-300 mb-3 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                  <h3
+                    className="text-xl font-bold mb-3 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     Phương pháp
                   </h3>
-                  <ul className="text-gray-200 space-y-2 mb-8">
+                  <ul
+                    className="space-y-2 mb-8"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-violet-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#C78B4E" }}
+                      />
                       Timeline tương tác 3D
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-violet-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#C78B4E" }}
+                      />
                       Comic strip triết học
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-violet-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#C78B4E" }}
+                      />
                       Thảo luận và khảo sát
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-violet-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#C78B4E" }}
+                      />
                       Trang chi tiết triết gia
                     </li>
                   </ul>
 
-                  <h3 className="text-xl font-bold text-amber-300 mb-3 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-amber-300 rounded-full" />
+                  <h3
+                    className="text-xl font-bold mb-3 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     Công nghệ
                   </h3>
-                  <ul className="text-gray-200 space-y-2">
+                  <ul
+                    className="space-y-2"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-fuchsia-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#7A6A53" }}
+                      />
                       Next.js 14
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-fuchsia-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#7A6A53" }}
+                      />
                       Three.js & React Three Fiber
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-fuchsia-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#7A6A53" }}
+                      />
                       Framer Motion
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-fuchsia-400 rounded-full" />
+                      <div
+                        className="w-1 h-1 rounded-full"
+                        style={{ backgroundColor: "#7A6A53" }}
+                      />
                       Tailwind CSS
                     </li>
                   </ul>
@@ -226,7 +319,13 @@ export default function TeamPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl font-bold text-white mb-12 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-4xl font-bold mb-12 text-center"
+              style={{
+                color: "#3B3A36",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
               Nhóm thực hiện
             </motion.h2>
@@ -238,29 +337,55 @@ export default function TeamPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="group relative bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-8 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+                  transition={{
+                    delay: index * 0.1,
+                    duration: 0.8,
+                    ease: "easeOut",
+                  }}
+                  whileHover={{ y: -8, scale: 1.01 }}
+                  className="group relative rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-500"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    border: "1px solid #7A6A53",
+                  }}
                 >
                   <div
-                    className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center relative"
+                    className="w-20 h-20 rounded-lg mx-auto mb-6 flex items-center justify-center shadow-sm"
+                    style={{ backgroundColor: "#C78B4E" }}
+                  >
+                    <member.icon
+                      className="w-10 h-10"
+                      style={{ color: "#F4EFE6" }}
+                    />
+                  </div>
+                  <h3
+                    className="text-xl font-bold mb-2 text-center"
                     style={{
-                      background: `linear-gradient(135deg, ${member.color}, ${member.color}80)`,
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
                     }}
                   >
-                    <div
-                      className="absolute inset-0 rounded-2xl blur-xl opacity-50"
-                      style={{ background: member.color }}
-                    />
-                    <member.icon className="w-10 h-10 text-white relative z-10" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2 text-center">
                     {member.name}
                   </h3>
-                  <p className="text-amber-300 font-medium mb-3 text-center text-sm">
+                  <p
+                    className="font-medium mb-3 text-center text-sm"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     {member.role}
                   </p>
-                  <p className="text-gray-400 text-sm text-center leading-relaxed">
+                  <p
+                    className="text-sm text-center leading-relaxed"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     {member.description}
                   </p>
                 </motion.div>
@@ -276,36 +401,86 @@ export default function TeamPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 shadow-sm hover:shadow-md transition-all duration-500"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <h2 className="text-4xl font-bold text-white mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+              <h2
+                className="text-4xl font-bold mb-8 text-center"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Minh bạch AI
               </h2>
-              <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-2xl p-8">
-                <p className="text-gray-200 mb-6">
-                  <strong className="text-amber-300 text-lg">
+              <div
+                className="rounded-lg p-8 shadow-sm"
+                style={{
+                  backgroundColor: "#F4EFE6",
+                  border: "1px solid #7A6A53",
+                }}
+              >
+                <p
+                  className="mb-6"
+                  style={{
+                    color: "#3B3A36",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  <strong className="text-lg" style={{ color: "#C78B4E" }}>
                     AI được sử dụng để:
                   </strong>
                 </p>
-                <ul className="text-gray-200 space-y-3 mb-6">
+                <ul
+                  className="space-y-3 mb-6"
+                  style={{
+                    color: "#3B3A36",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-amber-400 rounded-full mt-2" />
+                    <div
+                      className="w-2 h-2 rounded-full mt-2"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     <span>Hỗ trợ viết code và tạo giao diện tương tác</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-amber-400 rounded-full mt-2" />
+                    <div
+                      className="w-2 h-2 rounded-full mt-2"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     <span>Tạo hình minh họa và bố cục nội dung</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-amber-400 rounded-full mt-2" />
+                    <div
+                      className="w-2 h-2 rounded-full mt-2"
+                      style={{ backgroundColor: "#C78B4E" }}
+                    />
                     <span>Tối ưu hóa trải nghiệm người dùng</span>
                   </li>
                 </ul>
-                <div className="pt-6 border-t border-amber-500/20">
-                  <p className="text-gray-200">
-                    <strong className="text-amber-300">Lưu ý:</strong> Mọi thông
-                    tin triết học được kiểm tra và chỉnh sửa thủ công để đảm bảo
-                    tính chính xác.
+                <div
+                  className="pt-6"
+                  style={{ borderTop: "1px solid #7A6A53" }}
+                >
+                  <p
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    <strong style={{ color: "#C78B4E" }}>Lưu ý:</strong> Mọi
+                    thông tin triết học được kiểm tra và chỉnh sửa thủ công để
+                    đảm bảo tính chính xác.
                   </p>
                 </div>
               </div>
@@ -320,18 +495,44 @@ export default function TeamPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-10 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="rounded-lg p-10 shadow-sm hover:shadow-md transition-all duration-500"
+              style={{
+                backgroundColor: "#F4EFE6",
+                border: "1px solid #7A6A53",
+              }}
             >
-              <h2 className="text-4xl font-bold text-white mb-8 text-center bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+              <h2
+                className="text-4xl font-bold mb-8 text-center"
+                style={{
+                  color: "#3B3A36",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
+              >
                 Tài liệu tham khảo
               </h2>
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
-                  <h3 className="text-xl font-bold text-amber-300 mb-4 flex items-center gap-2">
+                  <h3
+                    className="text-xl font-bold mb-4 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     <BookOpen className="w-5 h-5" />
                     Sách chính
                   </h3>
-                  <ul className="text-gray-200 space-y-3">
+                  <ul
+                    className="space-y-3"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     {[
                       "The Second Sex – Simone de Beauvoir",
                       "Gender Trouble – Judith Butler",
@@ -339,28 +540,56 @@ export default function TeamPage() {
                       "Politics – Aristotle",
                       "On Liberty – John Stuart Mill",
                     ].map((book, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-violet-400 rounded-full mt-2" />
+                      <li
+                        key={`book-${book.split(" – ")[0]}`}
+                        className="flex items-start gap-2"
+                      >
+                        <div
+                          className="w-1.5 h-1.5 rounded-full mt-2"
+                          style={{ backgroundColor: "#C78B4E" }}
+                        />
                         <span>{book}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-amber-300 mb-4 flex items-center gap-2">
+                  <h3
+                    className="text-xl font-bold mb-4 flex items-center gap-2"
+                    style={{
+                      color: "#C78B4E",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     <Users className="w-5 h-5" />
                     Thông tin dự án
                   </h3>
-                  <ul className="text-gray-200 space-y-3">
+                  <ul
+                    className="space-y-3"
+                    style={{
+                      color: "#3B3A36",
+                      fontFamily:
+                        "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
                     {[
                       { label: "Trường", value: "Đại học FPT" },
                       { label: "Môn", value: "Triết học đại cương" },
                       { label: "Loại", value: "Dự án PBL" },
                       { label: "Năm", value: "2025" },
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-fuchsia-400 rounded-full" />
-                        <strong className="text-gray-300">{item.label}:</strong>
+                      <li
+                        key={`project-${item.label}`}
+                        className="flex items-center gap-2"
+                      >
+                        <div
+                          className="w-1.5 h-1.5 rounded-full"
+                          style={{ backgroundColor: "#7A6A53" }}
+                        />
+                        <strong style={{ color: "#3B3A36" }}>
+                          {item.label}:
+                        </strong>
                         <span>{item.value}</span>
                       </li>
                     ))}
@@ -378,19 +607,27 @@ export default function TeamPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-5xl font-bold mb-6"
+              style={{
+                color: "#3B3A36",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
-              <span className="bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
-                Liên hệ
-              </span>
+              <span>Liên hệ</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400 mb-10"
+              transition={{ delay: 0.2, duration: 1.2, ease: "easeOut" }}
+              className="text-xl mb-10"
+              style={{
+                color: "#3B3A36",
+                fontFamily:
+                  "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+              }}
             >
               Có câu hỏi về dự án? Hãy liên hệ với chúng tôi!
             </motion.p>
@@ -398,14 +635,22 @@ export default function TeamPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.4, duration: 1.2, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-5 justify-center"
             >
               <motion.a
                 href="mailto:team@philosophy-gender.com"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-500 text-black font-bold py-4 px-9 rounded-full shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 flex items-center justify-center gap-3"
+                whileHover={{ scale: 1.01, y: -2 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="group relative overflow-hidden font-bold py-4 px-9 rounded-lg shadow-sm hover:shadow-md transition-all duration-500 flex items-center justify-center gap-3"
+                style={{
+                  backgroundColor: "#C78B4E",
+                  color: "#F4EFE6",
+                  border: "1px solid #7A6A53",
+                  fontFamily:
+                    "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                }}
               >
                 <Mail className="w-5 h-5" />
                 <span>Email Nhóm</span>
@@ -413,9 +658,17 @@ export default function TeamPage() {
 
               <Link href="/">
                 <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white/5 backdrop-blur-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-bold py-4 px-9 rounded-full transition-all duration-300"
+                  whileHover={{ scale: 1.01, y: -2 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="font-bold py-4 px-9 rounded-lg shadow-sm hover:shadow-md transition-all duration-500"
+                  style={{
+                    backgroundColor: "#F4EFE6",
+                    color: "#3B3A36",
+                    border: "1px solid #7A6A53",
+                    fontFamily:
+                      "'EB Garamond', 'Crimson Pro', 'Cormorant Garamond', Georgia, serif",
+                  }}
                 >
                   Về Trang chủ
                 </motion.button>
